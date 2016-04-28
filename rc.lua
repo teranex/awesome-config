@@ -11,6 +11,9 @@ local beautiful = require("beautiful")
 -- local naughty = require("naughty")
 local menubar = require("menubar")
 
+-- scratchpad
+local scratch = require("scratch")
+
 -- Load Debian menu entries
 require("debian.menu")
 
@@ -277,7 +280,10 @@ globalkeys = awful.util.table.join(
                   awful.util.getdir("cache") .. "/history_eval")
               end),
     -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end)
+    awful.key({ modkey }, "p", function() menubar.show() end),
+
+    -- quake style terminator
+    awful.key({ }, "F12", function () scratch.drop("terminator", "top", "center", 0.95, 0.85, false, 1) end)
 )
 
 clientkeys = awful.util.table.join(
