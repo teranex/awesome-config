@@ -283,7 +283,9 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "p", function() menubar.show() end),
 
     -- quake style terminator
-    awful.key({ }, "F12", function () scratch.drop("terminator", "top", "center", 0.95, 0.85, false, 1) end)
+    awful.key({ }, "F12", function () scratch.drop("terminator", "top", "center", 0.95, 0.85, false, 1) end),
+    -- quake style vimwiki
+    awful.key({ modkey }, "F12", function () scratch.drop("/home/jeroen/scripts/vimwiki", "top", "center", 0.95, 0.85, false, 1) end)
 )
 
 clientkeys = awful.util.table.join(
