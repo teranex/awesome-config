@@ -398,6 +398,9 @@ awful.rules.rules = {
     -- Google Calendar should float by default
     { rule = { class = "google-chrome-beta", instance = "calendar.google.com" },
       properties = { floating = true } },
+
+    { rule = { class = "Hamster-indicator" },
+      properties = { floating = true } },
 }
 -- }}}
 
