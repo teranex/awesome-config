@@ -405,6 +405,11 @@ awful.rules.rules = {
 
     { rule = { class = "Hamster-indicator" },
       properties = { floating = true } },
+
+    { rule = { class = "Xfce4-notifyd" },
+      properties = { focus = false,
+                     raise = false,
+                     border_width = 0 } },
 }
 -- }}}
 
