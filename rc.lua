@@ -14,6 +14,8 @@ local menubar = require("menubar")
 -- scratchpad
 local scratch = require("scratch")
 
+local sharedtags = require("sharedtags")
+
 -- local revelation = require("revelation")
 
 -- Load Debian menu entries
@@ -92,11 +94,22 @@ end
 
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
-tags = {}
-for s = 1, screen.count() do
-    -- Each screen has its own tag table.
-    tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, s, layouts[1])
-end
+-- tags = {}
+-- for s = 1, screen.count() do
+--     -- Each screen has its own tag table.
+--     tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, s, layouts[1])
+-- end
+local tags = sharedtags({
+    { layout = layouts[1] },
+    { layout = layouts[1] },
+    { layout = layouts[1] },
+    { layout = layouts[1] },
+    { layout = layouts[1] },
+    { layout = layouts[1] },
+    { layout = layouts[1] },
+    { layout = layouts[3] }, -- messaging, use fair layout
+    { layout = layouts[1] }
+})
 -- }}}
 
 -- {{{ Menu
@@ -204,8 +217,10 @@ for s = 1, screen.count() do
 
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
-    if s == 1 then right_layout:add(wibox.widget.systray()) end
+    if s == 1 then
+        right_layout:add(wibox.widget.systray())
     right_layout:add(mytextclock)
+    end
     right_layout:add(mylayoutbox[s])
 
     -- Now bring it all together (with the tasklist in the middle)
@@ -294,9 +309,9 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "p", function() menubar.show() end),
 
     -- quake style terminator
-    awful.key({ }, "F12", function () scratch.drop("terminator", "top", "center", 0.95, 0.85, false, 1) end),
+    -- awful.key({ }, "F12", function () scratch.drop("terminator", "top", "center", 0.95, 0.85, false, 1) end)
     -- quake style vimwiki
-    awful.key({ modkey }, "F12", function () scratch.drop("/home/jeroen/scripts/vimwiki", "top", "center", 0.95, 0.85, false, 1) end)
+    -- awful.key({ modkey }, "F12", function () scratch.drop("/home/jeroen/scripts/vimwiki", "top", "center", 0.95, 0.85, false, 1) end)
 )
 
 clientkeys = awful.util.table.join(
@@ -327,26 +342,31 @@ for i = 1, 9 do
         -- View tag only.
         awful.key({ modkey }, "#" .. i + 9,
                   function ()
-                        local screen = mouse.screen
-                        local tag = awful.tag.gettags(screen)[i]
+                        -- local screen = mouse.screen
+                        -- local tag = awful.tag.gettags(screen)[i]
+                        local tag = tags[i]
                         if tag then
-                           awful.tag.viewonly(tag)
+                           -- awful.tag.viewonly(tag)
+                           sharedtags.viewonly(tag)
                         end
                   end),
         -- Toggle tag.
         awful.key({ modkey, "Control" }, "#" .. i + 9,
                   function ()
-                      local screen = mouse.screen
-                      local tag = awful.tag.gettags(screen)[i]
+                      -- local screen = mouse.screen
+                      -- local tag = awful.tag.gettags(screen)[i]
+                      local tag = tags[i]
                       if tag then
-                         awful.tag.viewtoggle(tag)
+                         -- awful.tag.viewtoggle(tag)
+                         sharedtags.viewtoggle(tag)
                       end
                   end),
         -- Move client to tag.
         awful.key({ modkey, "Shift" }, "#" .. i + 9,
                   function ()
                       if client.focus then
-                          local tag = awful.tag.gettags(client.focus.screen)[i]
+                          -- local tag = awful.tag.gettags(client.focus.screen)[i]
+                          local tag = tags[i]
                           if tag then
                               awful.client.movetotag(tag)
                           end
@@ -356,7 +376,8 @@ for i = 1, 9 do
         awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9,
                   function ()
                       if client.focus then
-                          local tag = awful.tag.gettags(client.focus.screen)[i]
+                          -- local tag = awful.tag.gettags(client.focus.screen)[i]
+                          local tag = tags[i]
                           if tag then
                               awful.client.toggletag(tag)
                           end
@@ -390,14 +411,17 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "gimp" },
       properties = { floating = true } },
-    -- Set Firefox to always map on tags number 2 of screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { tag = tags[1][2] } },
-    -- Set Spotify to always map on tags number 9 of screen 1.
+
+    { rule = { class = "Thunderbird" },
+      properties = { tag = tags[1] } },
+
+    { rule = { class = "Firefox" },
+      properties = { tag = tags[2] } },
+
     { rule = { class = "banshee" },
-      properties = { tag = tags[1][9] } },
+      properties = { tag = tags[9] } },
     { rule = { class = "Spotify" },
-      properties = { tag = tags[1][9] } },
+      properties = { tag = tags[9] } },
 
     -- Google Calendar should float by default
     { rule = { class = "google-chrome-beta", instance = "calendar.google.com" },
