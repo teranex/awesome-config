@@ -16,7 +16,7 @@ local scratch = require("scratch")
 
 local sharedtags = require("sharedtags")
 
--- local revelation = require("revelation")
+local revelation = require("revelation")
 
 -- Load Debian menu entries
 require("debian.menu")
@@ -51,7 +51,7 @@ end
 beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 
 -- Init Revelation
--- revelation.init()
+revelation.init()
 
 -- This is used later as the default terminal and editor to run.
 -- terminal = "x-terminal-emulator"
@@ -247,7 +247,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
 
-    -- awful.key({ modkey,           }, "e",      revelation),
+    awful.key({ modkey,           }, "e",      revelation),
 
     awful.key({ modkey,           }, "j",
         function ()
