@@ -219,7 +219,7 @@ for s = 1, screen.count() do
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then
         right_layout:add(wibox.widget.systray())
-    right_layout:add(mytextclock)
+        right_layout:add(mytextclock)
     end
     right_layout:add(mylayoutbox[s])
 
@@ -306,7 +306,7 @@ globalkeys = awful.util.table.join(
                   awful.util.getdir("cache") .. "/history_eval")
               end),
     -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end),
+    awful.key({ modkey }, "p", function() menubar.show() end)
 
     -- quake style terminator
     -- awful.key({ }, "F12", function () scratch.drop("terminator", "top", "center", 0.95, 0.85, false, 1) end)
@@ -428,6 +428,9 @@ awful.rules.rules = {
       properties = { floating = true } },
 
     { rule = { class = "Hamster-indicator" },
+      properties = { floating = true } },
+
+    { rule = { class = "Shutter" },
       properties = { floating = true } },
 
     { rule = { class = "Terminator", instance = "terminator" },
