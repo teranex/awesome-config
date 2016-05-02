@@ -306,7 +306,10 @@ globalkeys = awful.util.table.join(
                   awful.util.getdir("cache") .. "/history_eval")
               end),
     -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end)
+    awful.key({ modkey }, "p", function() menubar.show() end),
+
+    -- auto detect displays
+    awful.key({ modkey, "Shift"   }, "s",     function () awful.util.spawn( "xrandr --output VGA-0 --auto --right-of LVDS-0 --output HDMI-0 --auto --right-of LVDS-0" ) end )
 
     -- quake style terminator
     -- awful.key({ }, "F12", function () scratch.drop("terminator", "top", "center", 0.95, 0.85, false, 1) end)
