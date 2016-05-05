@@ -13,9 +13,6 @@ local menubar = require("menubar")
 
 local lain = require("lain")
 
--- scratchpad
-local scratch = require("scratch")
-
 local sharedtags = require("sharedtags")
 
 local vicious = require("vicious")
@@ -328,12 +325,9 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "p", function() menubar.show() end),
 
     -- auto detect displays
-    awful.key({ modkey, "Shift"   }, "s",     function () awful.util.spawn( "xrandr --output VGA-0 --auto --right-of LVDS-0 --output HDMI-0 --auto --right-of LVDS-0" ) end )
+    awful.key({ modkey, "Shift"   }, "s",     function () awful.util.spawn( "xrandr --output VGA-0 --auto --right-of LVDS-0 --output HDMI-0 --auto --right-of LVDS-0" ) end ),
 
-    -- quake style terminator
-    -- awful.key({ }, "F12", function () scratch.drop("terminator", "top", "center", 0.95, 0.85, false, 1) end)
-    -- quake style vimwiki
-    -- awful.key({ modkey }, "F12", function () scratch.drop("/home/jeroen/scripts/vimwiki", "top", "center", 0.95, 0.85, false, 1) end)
+    awful.key({ "Control" , "Mod1"}, "s",  function () awful.util.spawn( "gksudo pm-suspend" ) end )
 )
 
 clientkeys = awful.util.table.join(
