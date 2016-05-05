@@ -439,6 +439,9 @@ awful.rules.rules = {
     { rule = { class = "Spotify" },
       properties = { tag = tags[9] } },
 
+    { rule = { class = "Gvim" },
+      properties = { size_hints_honor = false } },
+
     -- Google Calendar should float by default
     { rule = { class = "google-chrome-beta", instance = "calendar.google.com" },
       properties = { floating = true } },
