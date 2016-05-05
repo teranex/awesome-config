@@ -24,7 +24,7 @@ theme.fg_urgent                     = "#FD971F"
 theme.bg_urgent                     = "#2A1F1E"
 theme.bg_minimize                   = theme.bg_normal
 theme.fg_minimize                   = "#688696"
-theme.border_width                  = "1"
+theme.border_width                  = "2"
 theme.border_normal                 = "#252525"
 theme.border_focus                  = "#0099CC"
 theme.taglist_fg_focus              = "#FFFFFF"
@@ -99,7 +99,7 @@ theme.tasklist_disable_icon         = true
 -- theme.tasklist_maximized_vertical   = ""
 
 -- lain related
-theme.useless_gap_width             = 10
+theme.useless_gap_width             = 8
 theme.layout_uselesstile            = theme.icon_dir .. "/uselesstile.png"
 theme.layout_uselesstileleft        = theme.icon_dir .. "/uselesstileleft.png"
 theme.layout_uselesstiletop         = theme.icon_dir .. "/uselesstiletop.png"

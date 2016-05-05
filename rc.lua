@@ -11,6 +11,8 @@ local beautiful = require("beautiful")
 -- local naughty = require("naughty")
 local menubar = require("menubar")
 
+local lain = require("lain")
+
 -- scratchpad
 local scratch = require("scratch")
 
@@ -71,11 +73,14 @@ modkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 local layouts =
 {
-    awful.layout.suit.tile,
+   -- awful.layout.suit.tile,
+    lain.layout.uselesstile,
     -- awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
+   -- awful.layout.suit.tile.bottom,
+    lain.layout.uselesstile.bottom,
     -- awful.layout.suit.tile.top,
-    awful.layout.suit.fair,
+   -- awful.layout.suit.fair,
+    lain.layout.uselessfair,
     -- awful.layout.suit.fair.horizontal,
     -- awful.layout.suit.spiral,
     -- awful.layout.suit.spiral.dwindle,
