@@ -268,8 +268,6 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
 
-    awful.key({ modkey,           }, "e",      revelation),
-
     awful.key({ modkey,           }, "j",
         function ()
             awful.client.focus.byidx( 1)
