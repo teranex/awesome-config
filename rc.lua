@@ -463,6 +463,10 @@ awful.rules.rules = {
       properties = { focus = false,
                      raise = false,
                      border_width = 0 } },
+
+    { rule = { class = "Xfdesktop" },
+      properties = { border_width = 0 } },
+ 
 }
 -- }}}
 
