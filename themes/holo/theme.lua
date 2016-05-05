@@ -100,8 +100,10 @@ theme.tasklist_disable_icon         = true
 
 -- lain related
 theme.useless_gap_width             = 8
-theme.layout_uselesstile            = theme.icon_dir .. "/uselesstile.png"
-theme.layout_uselesstileleft        = theme.icon_dir .. "/uselesstileleft.png"
+theme.layout_uselesstile            = theme.icon_dir .. "/layouts/tilew.png"
+theme.layout_uselesstileleft        = theme.icon_dir .. "/layouts/uselesstileleft.png"
 theme.layout_uselesstiletop         = theme.icon_dir .. "/uselesstiletop.png"
+theme.layout_uselesstilebottom      = theme.icon_dir .. "/layouts/tilebottomw.png"
+theme.layout_uselessfair            = theme.icon_dir .. "/layouts/fairvw.png"
 
 return theme
