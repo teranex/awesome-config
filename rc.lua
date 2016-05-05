@@ -54,9 +54,6 @@ end
 -- beautiful.init(awful.util.getdir("config") .. "/themes/default/theme.lua")
 beautiful.init(awful.util.getdir("config") .. "/themes/holo/theme.lua")
 
--- Init Revelation
-revelation.init()
-
 -- This is used later as the default terminal and editor to run.
 -- terminal = "x-terminal-emulator"
 terminal = "terminator"
