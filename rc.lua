@@ -455,9 +455,9 @@ awful.rules.rules = {
     { rule = { class = "Terminator", instance = "terminator" },
       properties = { floating = false } },
     -- Terminator is also started as a quake style terminal, bound to <F12>:
-    -- `terminator --hidden --borderless --geometry 1920x920+0+0 --classname="quake-terminator" &`
+    -- `terminator --hidden --borderless --geometry 1920x920+0+21 --classname="quake-terminator" &`
     { rule = { class = "Terminator", instance = "quake-terminator" },
-      properties = { floating = true, maximized_horizontal = true } },
+      properties = { floating = true, maximized_horizontal = true, border_width = 0 } },
 
     { rule = { class = "Xfce4-notifyd" },
       properties = { focus = false,
