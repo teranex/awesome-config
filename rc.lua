@@ -18,7 +18,7 @@ local scratch = require("scratch")
 
 local sharedtags = require("sharedtags")
 
-local revelation = require("revelation")
+local vicious = require("vicious")
 
 -- Load Debian menu entries
 require("debian.menu")
@@ -145,6 +145,17 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- Create a textclock widget
 mytextclock = awful.widget.textclock()
 
+widget_spacer = wibox.widget.textbox(" ")
+
+-- Initialize widget
+cpuwidget = awful.widget.graph()
+-- Graph properties
+cpuwidget:set_width(50)
+cpuwidget:set_background_color(theme.bg_normal)
+cpuwidget:set_color(theme.fg_focus)
+-- Register widget
+vicious.register(cpuwidget, vicious.widgets.cpu, "$1", 1)
+
 -- Create a wibox for each screen and add it
 mywibox = {}
 mypromptbox = {}
@@ -225,6 +236,9 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then
+        right_layout:add(cpuwidget)
+        right_layout:add(widget_spacer)
+        right_layout:add(widget_spacer)
         right_layout:add(wibox.widget.systray())
         right_layout:add(mytextclock)
     end
