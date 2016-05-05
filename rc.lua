@@ -135,6 +135,9 @@ local tags = sharedtags({
 --                                      menu = mymainmenu })
 
 -- Menubar configuration
+menubar.app_folders = { "/usr/share/applications/", "/home/jeroen/scripts/desktop/applications/" }
+menubar.cache_entries = true
+menubar.show_categories = false
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 -- }}}
 
