@@ -385,6 +385,10 @@ for i = 1, 9 do
                           local tag = tags[i]
                           if tag then
                               awful.client.movetotag(tag)
+                              -- also jump to the target tag if it is not visible on any screen
+                              if not tag.selected then
+                                 sharedtags.viewonly(tag)
+                              end
                           end
                      end
                   end),
