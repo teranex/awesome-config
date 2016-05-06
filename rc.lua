@@ -432,10 +432,19 @@ awful.rules.rules = {
     { rule = { class = "gimp" },
       properties = { floating = true } },
 
-    { rule = { class = "Thunderbird" },
+    { rule = { class = "Thunderbird", instance = "Mail" },
       properties = { tag = tags[1] } },
 
-    { rule = { class = "Firefox" },
+    -- GPG Passphrase dialog
+    { rule = { class = "Gcr-prompter" },
+      properties = { floating = true },
+      callback = function (c)
+          awful.placement.centered(c, nil)
+      end
+    },
+
+    -- Firefox, but only browser windows (Navigator), on dialogs etc
+    { rule = { class = "Firefox", instance = "Navigator" },
       properties = { tag = tags[2] } },
 
     { rule = { class = "banshee" },
