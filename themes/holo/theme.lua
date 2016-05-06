@@ -99,7 +99,7 @@ theme.tasklist_disable_icon         = true
 -- theme.tasklist_maximized_vertical   = ""
 
 -- lain related
-theme.useless_gap_width             = 8
+theme.useless_gap_width             = 10
 theme.layout_uselesstile            = theme.icon_dir .. "/layouts/tilew.png"
 theme.layout_uselesstileleft        = theme.icon_dir .. "/layouts/uselesstileleft.png"
 theme.layout_uselesstiletop         = theme.icon_dir .. "/uselesstiletop.png"
