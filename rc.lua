@@ -141,6 +141,9 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- {{{ Wibox
 -- Create a textclock widget
 mytextclock = awful.widget.textclock()
+mytextclock:buttons(awful.util.table.join(
+    awful.button({ }, 1, function () awful.util.spawn("orage -t") end)
+))
 
 widget_spacer = wibox.widget.textbox(" ")
 
@@ -479,6 +482,14 @@ awful.rules.rules = {
 
     { rule = { class = "Xfdesktop" },
       properties = { border_width = 0 } },
+
+    { rule = { class = "Orage" },
+      properties = { floating = true },
+      callback = function (c)
+                    local win_x = screen[c.screen].workarea.width - 268
+                    c:geometry({ width = 248, height = 177, y = 21, x = win_x })
+                 end
+    },
  
 }
 -- }}}
