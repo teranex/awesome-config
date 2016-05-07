@@ -330,7 +330,7 @@ globalkeys = awful.util.table.join(
     -- auto detect displays
     awful.key({ modkey, "Shift"   }, "s",     function () awful.util.spawn( "xrandr --output VGA-0 --auto --right-of LVDS-0 --output HDMI-0 --auto --right-of LVDS-0" ) end ),
 
-    awful.key({ "Control" , "Mod1"}, "s",  function () awful.util.spawn( "gksudo pm-suspend" ) end )
+    awful.key({ "Control" , "Mod1"}, "s",  function () awful.util.spawn( "gksudo " .. awful.util.getdir("config") .. "/scripts/suspend" ) end ),
 )
 
 clientkeys = awful.util.table.join(
