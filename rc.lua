@@ -101,15 +101,18 @@ end
 --     tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, s, layouts[1])
 -- end
 local tags = sharedtags({
-    { layout = layouts[1] },
-    { layout = layouts[1] },
-    { layout = layouts[1] },
-    { layout = layouts[1] },
-    { layout = layouts[1] },
-    { layout = layouts[1] },
-    { layout = layouts[1] },
-    { layout = layouts[3] }, -- messaging, use fair layout
-    { layout = layouts[1] }
+    { name = "1", layout = layouts[1] },
+    { name = "2", layout = layouts[1] },
+    { name = "3", layout = layouts[1] },
+    { name = "4", layout = layouts[1] },
+    { name = "5", layout = layouts[1] },
+    { name = "6", layout = layouts[1] },
+    { name = "7", layout = layouts[1] },
+    { name = "8", layout = layouts[1] },
+    { name = "9", layout = layouts[1] },
+    { name = "0", layout = layouts[1] },
+    { name = "-", layout = layouts[3] }, -- messaging, use fair layout
+    { name = "=", layout = layouts[1] }
 })
 -- }}}
 
@@ -356,7 +359,7 @@ clientkeys = awful.util.table.join(
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it works on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
-for i = 1, 9 do
+for i = 1, 12 do
     globalkeys = awful.util.table.join(globalkeys,
         -- View tag only.
         awful.key({ modkey }, "#" .. i + 9,
@@ -451,9 +454,9 @@ awful.rules.rules = {
       properties = { tag = tags[2] } },
 
     { rule = { class = "banshee" },
-      properties = { tag = tags[9] } },
+      properties = { tag = tags[12] } },
     { rule = { class = "Spotify" },
-      properties = { tag = tags[9] } },
+      properties = { tag = tags[12] } },
 
     { rule = { class = "Gvim" },
       properties = { size_hints_honor = false } },
