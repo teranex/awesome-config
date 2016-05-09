@@ -468,6 +468,9 @@ awful.rules.rules = {
     { rule = { class = "Firefox", instance = "Navigator" },
       properties = { tag = tags[2] } },
 
+    { rule = { class = "Pidgin" },
+      properties = { tag = tags[11] } },
+
     { rule = { class = "banshee" },
       properties = { tag = tags[12] } },
     { rule = { class = "Spotify" },
