@@ -158,6 +158,7 @@ cpuwidget:set_background_color(theme.bg_normal)
 cpuwidget:set_color(theme.fg_focus)
 -- Register widget
 vicious.register(cpuwidget, vicious.widgets.cpu, "$1", 1)
+cpuwidget_mirrored = wibox.layout.mirror(cpuwidget, { vertical = true })
 
 -- Create a wibox for each screen and add it
 mywibox = {}
@@ -239,7 +240,7 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then
-        right_layout:add(cpuwidget)
+        right_layout:add(cpuwidget_mirrored)
         right_layout:add(widget_spacer)
         right_layout:add(widget_spacer)
         right_layout:add(wibox.widget.systray())
