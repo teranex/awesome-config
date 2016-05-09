@@ -17,6 +17,8 @@ local sharedtags = require("sharedtags")
 
 local vicious = require("vicious")
 
+require("cheeky")
+
 -- Load Debian menu entries
 require("debian.menu")
 
@@ -271,6 +273,18 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
+
+    awful.key({ "Mod1"            }, "Tab",
+        function()
+            local offset = screen[mouse.screen].workarea
+            cheeky.util.switcher({
+                show_tag = true,
+                show_screen = true,
+                notification_hide = true,
+                coords = { x = (offset.width - 650) / 2 + offset.x , y = 300 },
+                menu_theme = { height = 30, width = 650 },
+            })
+        end),
 
     awful.key({ modkey,           }, "j",
         function ()
