@@ -75,13 +75,13 @@ end
 -- Table of layouts to cover with awful.layout.inc, order matters.
 local layouts =
 {
-   -- awful.layout.suit.tile,
+    -- awful.layout.suit.tile,
     lain.layout.uselesstile,
     -- awful.layout.suit.tile.left,
-   -- awful.layout.suit.tile.bottom,
+    -- awful.layout.suit.tile.bottom,
     lain.layout.uselesstile.bottom,
     -- awful.layout.suit.tile.top,
-   -- awful.layout.suit.fair,
+    -- awful.layout.suit.fair,
     lain.layout.uselessfair,
     -- awful.layout.suit.fair.horizontal,
     -- awful.layout.suit.spiral,
@@ -370,9 +370,9 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "p", function() menubar.show() end),
 
     -- auto detect displays
-    awful.key({ modkey, "Shift"   }, "s",     function () awful.util.spawn( "xrandr --output VGA-0 --auto --right-of LVDS-0 --output HDMI-0 --auto --right-of LVDS-0" ) end ),
-
-    awful.key({ "Control" , "Mod1"}, "s",  function () awful.util.spawn( "gksudo " .. awful.util.getdir("config") .. "/scripts/suspend" ) end ),
+    awful.key({ modkey, "Shift"   }, "s",     function () awful.util.spawn_with_shell( "disper -e -tleft" ) end ),
+    -- suspend
+    awful.key({ "Control" , "Mod1"}, "s",  function () awful.util.spawn_with_shell( awful.util.getdir("config") .. "/scripts/suspend" ) end )
 )
 
 clientkeys = awful.util.table.join(
