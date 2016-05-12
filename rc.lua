@@ -274,11 +274,28 @@ root.buttons(awful.util.table.join(
 ))
 -- }}}
 
+function tag_view_empty(direction, sc)
+   local s = sc or mouse.screen or 1
+   local scr = screen[s]
+
+   for i = 1, #awful.tag.gettags(s) do
+       awful.tag.viewidx(direction,s)
+       if #awful.client.visible(s) == 0 then
+           return
+       end
+   end
+end
+
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
+
+    -- jump to the next non-empty workspace
+    awful.key({ modkey, "Control" }, "Right", function () lain.util.tag_view_nonempty(1) end),
+    -- jump to the next empty workspace
+    awful.key({ modkey, "Shift" }, "Right", function () tag_view_empty(1) end),
 
     awful.key({ "Mod1"            }, "Tab",
         function()
