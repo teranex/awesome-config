@@ -524,7 +524,7 @@ awful.rules.rules = {
                      border_width = 0,
                      opacity = 0.95 },
       callback = function (c)
-                    c:geometry({ y = 21 })
+                    c:geometry({ y = 21, height = 920 })
                  end
     },
 
