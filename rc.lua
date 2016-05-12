@@ -68,7 +68,7 @@ modkey = "Mod4"
 
 -- if we are running on ChromeOS use alt as the modkey as it obviously
 -- does not have a windows key
-if awful.util.checkfile("/usr/local/bin/croutonversion") then
+if io.open("/usr/local/bin/croutonversion", "r") then
    modkey = "Mod1"
 end
 
