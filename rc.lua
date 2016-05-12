@@ -66,6 +66,12 @@ editor_cmd = terminal .. " -e " .. editor
 -- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
 
+-- if we are running on ChromeOS use alt as the modkey as it obviously
+-- does not have a windows key
+if awful.util.checkfile("/usr/local/bin/croutonversion") then
+   modkey = "Mod1"
+end
+
 -- Table of layouts to cover with awful.layout.inc, order matters.
 local layouts =
 {
