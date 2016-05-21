@@ -17,7 +17,7 @@ local sharedtags = require("sharedtags")
 
 local vicious = require("vicious")
 
-require("cheeky")
+-- require("cheeky")
 
 -- Load Debian menu entries
 require("debian.menu")
@@ -297,16 +297,23 @@ globalkeys = awful.util.table.join(
     -- jump to the next empty workspace
     awful.key({ modkey, "Shift" }, "Right", function () tag_view_empty(1) end),
 
+    -- launch rofi when pressing mod1+space to launch anything
+    awful.key({ modkey            }, "space",
+        function()
+            awful.util.spawn_with_shell( awful.util.getdir("config") .. "/scripts/rofi" )
+        end),
+    -- also launch rofi when pressing alt-tab to switch windows
     awful.key({ "Mod1"            }, "Tab",
         function()
-            local offset = screen[mouse.screen].workarea
-            cheeky.util.switcher({
-                show_tag = true,
-                show_screen = true,
-                notification_hide = true,
-                coords = { x = (offset.width - 650) / 2 + offset.x , y = 300 },
-                menu_theme = { height = 30, width = 650 },
-            })
+            awful.util.spawn_with_shell( awful.util.getdir("config") .. "/scripts/rofi window" )
+            -- local offset = screen[mouse.screen].workarea
+            -- cheeky.util.switcher({
+            --     show_tag = true,
+            --     show_screen = true,
+            --     notification_hide = true,
+            --     coords = { x = (offset.width - 650) / 2 + offset.x , y = 300 },
+            --     menu_theme = { height = 30, width = 650 },
+            -- })
         end),
 
     awful.key({ modkey,           }, "j",
