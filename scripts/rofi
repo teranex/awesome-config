@@ -13,4 +13,4 @@ PATH=$PATH:~/scripts rofi \
     -combi-modi drun,vim:rofi-vim,dir:rofi-dirs \
     -sidebar-mode \
     -fuzzy \
-    -color-window "#303030, #222222, #222222" -color-normal "#303030, #ffffff, argb:2d222222, #0099cc, #ffffff" -color-active "#303030, #5fba7d, argb:2d222222, #5fba7d, #fdf6e3" -color-urgent "#2a1f1e, #fd971f, argb:682a1f1e, #fd971f, #2a1f1e"
+    -color-window "#303030, #222222, #222222" -color-normal "#303030, #ffffff, argb:2d222222, #0099cc, #ffffff" -color-active "#303030, #808080, argb:2d222222, #808080, #2d2828" -color-urgent "#2a1f1e, #fd971f, argb:682a1f1e, #fd971f, #2a1f1e"
