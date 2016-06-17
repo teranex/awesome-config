@@ -83,11 +83,13 @@ local layouts =
     -- awful.layout.suit.tile.top,
     -- awful.layout.suit.fair,
     lain.layout.uselessfair,
+    lain.layout.uselessfair.horizontal,
     -- awful.layout.suit.fair.horizontal,
     -- awful.layout.suit.spiral,
     -- awful.layout.suit.spiral.dwindle,
     -- awful.layout.suit.floating,
     awful.layout.suit.max,
+    lain.layout.termfair,
     -- awful.layout.suit.max.fullscreen,
     -- awful.layout.suit.magnifier
 }
@@ -119,7 +121,7 @@ local tags = sharedtags({
     { name = "8", layout = layouts[1] },
     { name = "9", layout = layouts[1] },
     { name = "0", layout = layouts[1] },
-    { name = "-", layout = layouts[3] }, -- messaging, use fair layout
+    { name = "-", layout = layouts[4] }, -- messaging, use fair layout
     { name = "=", layout = layouts[1] }
 })
 -- }}}
@@ -351,8 +353,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
     awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)    end),
     -- awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1)      end),
-    awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.setmwfact(0.35)     end),
-    awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.setmwfact(0.65)     end),
+    awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.setmwfact(0.33)     end),
+    awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.setmwfact(0.66)     end),
     awful.key({ modkey, "Shift"   }, "space", function () awful.tag.setmwfact(0.50)     end),
     awful.key({ modkey            }, ",",     function () awful.tag.incnmaster( 1)      end),
     -- awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1)      end),

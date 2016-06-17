@@ -107,5 +107,7 @@ theme.layout_uselesstileleft        = theme.icon_dir .. "/layouts/uselesstilelef
 theme.layout_uselesstiletop         = theme.icon_dir .. "/uselesstiletop.png"
 theme.layout_uselesstilebottom      = theme.icon_dir .. "/layouts/tilebottomw.png"
 theme.layout_uselessfair            = theme.icon_dir .. "/layouts/fairvw.png"
+theme.layout_uselessfairh           = theme.icon_dir .. "/layouts/fairhw.png"
+theme.layout_termfair               = theme.icon_dir .. "/layouts/termfairw.png"
 
 return theme
