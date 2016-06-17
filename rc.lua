@@ -381,6 +381,11 @@ globalkeys = awful.util.table.join(
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end),
 
+    -- if I can't fix my muscle-memory, let's fix it with a shortcut:
+    -- make <modkey>+volumeUp/Down also work (next to fn+volUp/Down on Logitech K810)
+    awful.key({ modkey            }, "F9",    function () awful.util.spawn_with_shell( "amixer set Master 2.5%-" ) end ),
+    awful.key({ modkey            }, "F10",    function () awful.util.spawn_with_shell( "amixer set Master 2.5%+" ) end ),
+
     -- auto detect displays
     awful.key({ modkey, "Shift"   }, "s",     function () awful.util.spawn_with_shell( "disper -e -tleft" ) end ),
     -- suspend
@@ -520,8 +525,8 @@ awful.rules.rules = {
     { rule = { class = "google-chrome-beta", instance = "calendar.google.com" },
       properties = { floating = true } },
 
-    { rule = { class = "Hamster-indicator" },
-      properties = { floating = true } },
+    -- { rule = { class = "Hamster-indicator" },
+    --   properties = { floating = true } },
 
     { rule = { class = "Shutter" },
       properties = { floating = true } },
