@@ -120,9 +120,9 @@ local tags = sharedtags({
     { name = "7", layout = layouts[1] },
     { name = "8", layout = layouts[1] },
     { name = "9", layout = layouts[1] },
-    { name = "0", layout = layouts[1] },
-    { name = "-", layout = layouts[4] }, -- messaging, use fair layout
-    { name = "=", layout = layouts[1] }
+    { name = "0", layout = layouts[1], screen = 2 },
+    { name = "-", layout = layouts[4], screen = 2 }, -- messaging, use fair layout
+    { name = "=", layout = layouts[1], screen = 2 }
 })
 -- }}}
 
