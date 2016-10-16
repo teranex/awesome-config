@@ -72,6 +72,12 @@ if io.open("/usr/local/bin/croutonversion", "r") then
    modkey = "Mod1"
 end
 
+-- also set the modkey to alt when running on 'peppy', my chrombook which runs GalliumOS
+hostname = io.popen("uname -n"):read()
+if hostname == "peppy" then
+   modkey = "Mod1"
+end
+
 -- Table of layouts to cover with awful.layout.inc, order matters.
 local layouts =
 {
