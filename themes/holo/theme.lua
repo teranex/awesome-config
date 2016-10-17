@@ -24,7 +24,7 @@ theme.fg_urgent                     = "#FD971F"
 theme.bg_urgent                     = "#2A1F1E"
 theme.bg_minimize                   = theme.bg_normal
 theme.fg_minimize                   = "#688696"
-theme.border_width                  = "2"
+theme.border_width                  = 2
 -- theme.border_normal                 = "#252525"
 -- theme.border_normal                 = "#CECECE"
 theme.border_normal                 = "#585858"
@@ -68,6 +68,10 @@ theme.cpu                           = theme.icon_dir .. "/cpu.png"
 theme.net_up                        = theme.icon_dir .. "/net_up.png"
 theme.net_down                      = theme.icon_dir .. "/net_down.png"
 theme.widget_mail_notify            = theme.icon_dir .. "/mail_notify.png"
+
+-- titlebar_[bg|fg]_[normal|focus]
+theme.titlebar_bg_normal = "#CECECE"
+theme.titlebar_bg_focus  = "#0099CC"
 
 -- theme.layout_tile                   = theme.icon_dir .. "/tile.png"
 -- theme.layout_tilegaps               = theme.icon_dir .. "/tilegaps.png"
