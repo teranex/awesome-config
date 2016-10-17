@@ -1,0 +1,2 @@
+#!/bin/sh
+tdrop -a -m -h75% -w80% -x192 -y23 "gvim -f -c ':set titlestring=vimwiki-tdrop' -c ':SessionOpen vimwiki'"
