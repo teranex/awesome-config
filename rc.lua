@@ -399,6 +399,7 @@ globalkeys = awful.util.table.join(
 
     -- auto detect displays
     awful.key({ modkey, "Shift"   }, "s",     function () awful.util.spawn_with_shell( "disper -e -tleft" ) end ),
+    awful.key({ modkey, "Control", "Shift"   }, "s",     function () awful.util.spawn_with_shell( "disper -e -tright" ) end )
     -- suspend
     -- awful.key({ "Control" , "Mod1"}, "s",  function () awful.util.spawn_with_shell( awful.util.getdir("config") .. "/scripts/suspend" ) end )
 )
@@ -646,11 +647,11 @@ client.connect_signal("manage", function (c, startup)
 
         -- Now bring it all together
         local layout = wibox.layout.align.horizontal()
-        layout:set_left(left_layout)
-        layout:set_right(right_layout)
-        layout:set_middle(middle_layout)
+        -- layout:set_left(left_layout)
+        -- layout:set_right(right_layout)
+        -- layout:set_middle(middle_layout)
 
-        awful.titlebar(c):set_widget(layout)
+        awful.titlebar(c, { size = 7 }):set_widget(layout)
     end
 end)
 
