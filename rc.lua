@@ -395,7 +395,7 @@ globalkeys = awful.util.table.join(
     -- auto detect displays
     awful.key({ modkey, "Shift"   }, "s",     function () awful.util.spawn_with_shell( "disper -e -tleft" ) end ),
     -- suspend
-    awful.key({ "Control" , "Mod1"}, "s",  function () awful.util.spawn_with_shell( awful.util.getdir("config") .. "/scripts/suspend" ) end )
+    -- awful.key({ "Control" , "Mod1"}, "s",  function () awful.util.spawn_with_shell( awful.util.getdir("config") .. "/scripts/suspend" ) end )
 )
 
 clientkeys = awful.util.table.join(
@@ -405,6 +405,7 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Return", function (c) c:swap(awful.client.getmaster()) end),
     awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end),
+    awful.key({ modkey,           }, "s",      function (c) c.sticky = not c.sticky          end),
     awful.key({ modkey,           }, "n",
         function (c)
             -- The client currently has the input focus, so it cannot be
