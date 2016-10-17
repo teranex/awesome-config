@@ -324,6 +324,11 @@ globalkeys = awful.util.table.join(
             -- })
         end),
 
+    awful.key({          }, "F11",
+        function()
+            awful.util.spawn_with_shell( awful.util.getdir("config") .. "/scripts/vimwiki" )
+        end),
+
     awful.key({ modkey,           }, "j",
         function ()
             awful.client.focus.byidx( 1)
@@ -530,6 +535,9 @@ awful.rules.rules = {
 
     { rule = { class = "Gvim" },
       properties = { size_hints_honor = false } },
+
+    { rule = { class = "Gvim", name = "vimwiki-tdrop" },
+      properties = { floating = true, x = 192, y = 23 } },
 
     -- Google Calendar should float by default
     { rule = { class = "google-chrome-beta", instance = "calendar.google.com" },
