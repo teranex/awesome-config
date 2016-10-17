@@ -159,7 +159,7 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 
 -- {{{ Wibox
 -- Create a textclock widget
-mytextclock = awful.widget.textclock()
+mytextclock = awful.widget.textclock(" %a %b %d, %H:%M ", 1)
 mytextclock:buttons(awful.util.table.join(
     awful.button({ }, 1, function () awful.util.spawn("orage -t") end)
 ))
