@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ -z "$@" ]
+then
+    ls /home/jeroen/.vim/sessions/
+else
+    coproc gvim -c ":SessionOpen $@"
+fi
+

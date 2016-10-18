@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Requires playerctl: https://github.com/acrisci/playerctl
+
+if [ -z "$@" ]
+then
+    for player in $(playerctl -l);
+    do
+        echo "$player: play-pause"
+        echo "$player: next"
+    done
+else
+    player=$(echo $@ |cut -d':' -f1)
+    action=$(echo $@ |cut -d':' -f2)
+    coproc playerctl --player=$player $action
+fi

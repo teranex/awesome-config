@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ -z "$@" ]
+then
+    cat ~/bashmarks && find /home/jeroen/Projecten/ -maxdepth 3 -type d -not -path '*/\.*'
+else
+    coproc Thunar "$@"
+fi
+
