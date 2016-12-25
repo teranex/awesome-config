@@ -420,6 +420,14 @@ clientkeys = awful.util.table.join(
         end),
     awful.key({ modkey,           }, "m",
         function (c)
+           local mwfact = awful.tag.getmwfact()
+           awful.tag.setmwfact(0.85)
+           lain.util.magnify_client(c)
+           awful.tag.setmwfact(mwfact)
+           c:raise()
+        end),
+    awful.key({ modkey,  "Control" }, "m",
+        function (c)
             c.maximized_horizontal = not c.maximized_horizontal
             c.maximized_vertical   = not c.maximized_vertical
             if c.maximized_vertical then
