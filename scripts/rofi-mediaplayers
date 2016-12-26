@@ -9,8 +9,14 @@ then
         echo "$player: play-pause"
         echo "$player: next"
     done
+    echo "kodi: playpause"
+    echo "kodi: next"
 else
     player=$(echo $@ |cut -d':' -f1)
-    action=$(echo $@ |cut -d':' -f2)
-    coproc playerctl --player=$player $action
+    action=$(echo $@ |cut -d':' -f2 | xargs)
+    if [[ "$player" == "kodi" ]]; then
+        coproc ~/src/kodi-client/kodi-client --host=kodi --port=80 --$action
+    else
+        coproc playerctl --player=$player $action
+    fi
 fi
