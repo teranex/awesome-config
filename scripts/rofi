@@ -14,4 +14,11 @@ PATH=$PATH:`dirname $0` rofi \
     -sidebar-mode \
     -matching fuzzy \
     -opacity 90 \
-    -color-window "#303030, #222222, #222222" -color-normal "#303030, #ffffff, argb:2d222222, #0099cc, #ffffff" -color-active "#303030, #808080, argb:2d222222, #808080, #2d2828" -color-urgent "#2a1f1e, #fd971f, argb:682a1f1e, #fd971f, #2a1f1e"
+    -separator-style none \
+    -hide-scrollbar true \
+    -color-window "#303030, #222222, #222222" \
+    -color-normal "#303030, #ffffff, #303030, #0099cc, #ffffff" \
+    -color-active "#303030, #808080, argb:2d222222, #808080, #2d2828" \
+    -color-urgent "#2a1f1e, #fd971f, argb:682a1f1e, #fd971f, #2a1f1e"
+
+    # -color-normal "#303030, #ffffff, argb:2d222222, #0099cc, #ffffff" \
