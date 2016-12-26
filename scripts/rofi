@@ -16,9 +16,10 @@ PATH=$PATH:`dirname $0` rofi \
     -opacity 90 \
     -separator-style none \
     -hide-scrollbar true \
-    -color-window "#303030, #222222, #222222" \
-    -color-normal "#303030, #ffffff, #303030, #0099cc, #ffffff" \
-    -color-active "#303030, #808080, argb:2d222222, #808080, #2d2828" \
-    -color-urgent "#2a1f1e, #fd971f, argb:682a1f1e, #fd971f, #2a1f1e"
+    -no-fixed-num-lines \
+    -color-window "argb:E6303030, argb:E6303030" \
+    -color-normal "argb:00303030, #ffffff, argb:00303030, #0099cc, #ffffff" \
+    -color-active "argb:00303030, #808080, argb:00222222, #808080, #2d2828" \
+    -color-urgent "argb:002a1f1e, #fd971f, argb:682a1f1e, #fd971f, #2a1f1e"
 
     # -color-normal "#303030, #ffffff, argb:2d222222, #0099cc, #ffffff" \
