@@ -537,6 +537,9 @@ awful.rules.rules = {
     { rule = { class = "Thunderbird", instance = "Msgcompose" },
       properties = {}, callback = awful.client.setslave },
 
+    { rule = { class = "Hamster-indicator" },
+      properties = {}, callback = awful.client.setslave },
+
     -- GPG Passphrase dialog
     { rule = { class = "Gcr-prompter" },
       properties = { floating = true },
