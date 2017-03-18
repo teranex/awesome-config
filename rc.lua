@@ -102,10 +102,11 @@ local layouts =
     -- awful.layout.suit.spiral,
     -- awful.layout.suit.spiral.dwindle,
     -- awful.layout.suit.floating,
-    awful.layout.suit.max,
-    lain.layout.termfair,
+    -- awful.layout.suit.max,
+    -- lain.layout.termfair,
     -- awful.layout.suit.max.fullscreen,
     -- awful.layout.suit.magnifier
+    lain.layout.centerwork
 }
 -- }}}
 
