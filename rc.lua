@@ -8,7 +8,7 @@ local wibox = require("wibox")
 -- Theme handling library
 local beautiful = require("beautiful")
 -- Notification library
--- local naughty = require("naughty")
+naughty = require("naughty")
 local menubar = require("menubar")
 
 local lain = require("lain")
@@ -30,6 +30,14 @@ if awesome.startup_errors then
                      title = "Oops, there were errors during startup!",
                      text = awesome.startup_errors })
 end
+
+-- naughty.config.defaults.height = 80
+naughty.config.defaults.icon_size = 48
+naughty.config.defaults.timeout = 10
+naughty.config.presets.normal.opacity = 0.85
+naughty.config.presets.low.opacity = 0.85
+naughty.config.presets.critical.opacity = 0.85
+naughty.config.defaults.margin = 10
 
 -- Handle runtime errors after startup
 do
