@@ -430,6 +430,7 @@ clientkeys = awful.util.table.join(
             -- minimized, since minimized clients can't have the focus.
             c.minimized = true
         end),
+    awful.key({ modkey, "Control" }, "n", awful.client.restore ),
     awful.key({ modkey,           }, "m",
         function (c)
            local mwfact = awful.tag.getmwfact()
