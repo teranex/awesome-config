@@ -371,6 +371,10 @@ globalkeys = awful.util.table.join(
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
     awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)    end),
+
+    -- allow resizing of the slave windows
+    awful.key({ modkey,           }, "Down",  function () awful.client.incwfact(-0.10)  end),
+    awful.key({ modkey,           }, "Up",    function () awful.client.incwfact( 0.10)  end),
     -- awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1)      end),
     awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.setmwfact(0.33)     end),
     awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.setmwfact(0.66)     end),
