@@ -1,8 +1,0 @@
-#!/bin/bash
-
-if [ -z "$@" ]
-then
-    echo "Type a math expression and press ctrl+enter"
-else
-    echo "$@" | bc -l
-fi
