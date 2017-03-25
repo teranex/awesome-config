@@ -110,6 +110,9 @@ local tags = sharedtags({
     { name = "-", layout = awful.layout.layouts[4], screen = 1 }, -- messaging, use fair layout
     { name = "=", layout = awful.layout.layouts[1], screen = 1 }
 })
+for tag_id,tag in pairs(tags) do
+   tag.master_width_factor = 0.66
+end
 -- }}}
 
 -- {{{ Helper functions
