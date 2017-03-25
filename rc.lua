@@ -53,8 +53,8 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
--- TODO: port theme
-beautiful.init(awful.util.get_themes_dir() .. "zenburn/theme.lua")
+-- beautiful.init(awful.util.get_themes_dir() .. "zenburn/theme.lua")
+beautiful.init(awful.util.getdir("config") .. "/themes/holo/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "terminator"

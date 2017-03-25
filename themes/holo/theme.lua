@@ -24,6 +24,7 @@ theme.fg_urgent                     = "#FD971F"
 theme.bg_urgent                     = "#2A1F1E"
 theme.bg_minimize                   = theme.bg_normal
 theme.fg_minimize                   = "#688696"
+theme.useless_gap                   = 3
 theme.border_width                  = 2
 -- theme.border_normal                 = "#252525"
 -- theme.border_normal                 = "#CECECE"
@@ -86,18 +87,18 @@ theme.titlebar_bg_focus  = "#0099CC"
 -- theme.layout_fullscreen             = theme.icon_dir .. "/fullscreen.png"
 -- theme.layout_magnifier              = theme.icon_dir .. "/magnifier.png"
 -- theme.layout_floating               = theme.icon_dir .. "/floating.png"
-theme.layout_fairh = theme.icon_dir .. "/layouts/fairhw.png"
-theme.layout_fairv = theme.icon_dir .. "/layouts/fairvw.png"
-theme.layout_floating  = theme.icon_dir .. "/layouts/floatingw.png"
-theme.layout_magnifier = theme.icon_dir .. "/layouts/magnifierw.png"
-theme.layout_max = theme.icon_dir .. "/layouts/maxw.png"
-theme.layout_fullscreen = theme.icon_dir .. "/layouts/fullscreenw.png"
-theme.layout_tilebottom = theme.icon_dir .. "/layouts/tilebottomw.png"
-theme.layout_tileleft   = theme.icon_dir .. "/layouts/tileleftw.png"
-theme.layout_tile = theme.icon_dir .. "/layouts/tilew.png"
-theme.layout_tiletop = theme.icon_dir .. "/layouts/tiletopw.png"
-theme.layout_spiral  = theme.icon_dir .. "/layouts/spiralw.png"
-theme.layout_dwindle = theme.icon_dir .. "/layouts/dwindlew.png"
+-- theme.layout_fairh = theme.icon_dir .. "/layouts/fairhw.png"
+-- theme.layout_fairv = theme.icon_dir .. "/layouts/fairvw.png"
+-- theme.layout_floating  = theme.icon_dir .. "/layouts/floatingw.png"
+-- theme.layout_magnifier = theme.icon_dir .. "/layouts/magnifierw.png"
+-- theme.layout_max = theme.icon_dir .. "/layouts/maxw.png"
+-- theme.layout_fullscreen = theme.icon_dir .. "/layouts/fullscreenw.png"
+-- theme.layout_tilebottom = theme.icon_dir .. "/layouts/tilebottomw.png"
+-- theme.layout_tileleft   = theme.icon_dir .. "/layouts/tileleftw.png"
+-- theme.layout_tile = theme.icon_dir .. "/layouts/tilew.png"
+-- theme.layout_tiletop = theme.icon_dir .. "/layouts/tiletopw.png"
+-- theme.layout_spiral  = theme.icon_dir .. "/layouts/spiralw.png"
+-- theme.layout_dwindle = theme.icon_dir .. "/layouts/dwindlew.png"
 
 theme.tasklist_disable_icon         = true
 -- theme.tasklist_floating             = ""
@@ -105,13 +106,35 @@ theme.tasklist_disable_icon         = true
 -- theme.tasklist_maximized_vertical   = ""
 
 -- lain related
-theme.useless_gap_width             = 5
-theme.layout_uselesstile            = theme.icon_dir .. "/layouts/tilew.png"
-theme.layout_uselesstileleft        = theme.icon_dir .. "/layouts/uselesstileleft.png"
-theme.layout_uselesstiletop         = theme.icon_dir .. "/uselesstiletop.png"
-theme.layout_uselesstilebottom      = theme.icon_dir .. "/layouts/tilebottomw.png"
-theme.layout_uselessfair            = theme.icon_dir .. "/layouts/fairvw.png"
-theme.layout_uselessfairh           = theme.icon_dir .. "/layouts/fairhw.png"
-theme.layout_termfair               = theme.icon_dir .. "/layouts/termfairw.png"
+-- theme.useless_gap_width             = 5
+-- theme.layout_uselesstile            = theme.icon_dir .. "/layouts/tilew.png"
+-- theme.layout_uselesstileleft        = theme.icon_dir .. "/layouts/uselesstileleft.png"
+-- theme.layout_uselesstiletop         = theme.icon_dir .. "/uselesstiletop.png"
+-- theme.layout_uselesstilebottom      = theme.icon_dir .. "/layouts/tilebottomw.png"
+-- theme.layout_uselessfair            = theme.icon_dir .. "/layouts/fairvw.png"
+-- theme.layout_uselessfairh           = theme.icon_dir .. "/layouts/fairhw.png"
+-- theme.layout_termfair               = theme.icon_dir .. "/layouts/termfairw.png"
+
+-- You can use your own layout icons like this:
+theme.layout_fairh = "/usr/share/awesome/themes/default/layouts/fairhw.png"
+theme.layout_fairv = "/usr/share/awesome/themes/default/layouts/fairvw.png"
+theme.layout_floating  = "/usr/share/awesome/themes/default/layouts/floatingw.png"
+theme.layout_magnifier = "/usr/share/awesome/themes/default/layouts/magnifierw.png"
+theme.layout_max = "/usr/share/awesome/themes/default/layouts/maxw.png"
+theme.layout_fullscreen = "/usr/share/awesome/themes/default/layouts/fullscreenw.png"
+theme.layout_tilebottom = "/usr/share/awesome/themes/default/layouts/tilebottomw.png"
+theme.layout_tileleft   = "/usr/share/awesome/themes/default/layouts/tileleftw.png"
+theme.layout_tile = "/usr/share/awesome/themes/default/layouts/tilew.png"
+theme.layout_tiletop = "/usr/share/awesome/themes/default/layouts/tiletopw.png"
+theme.layout_spiral  = "/usr/share/awesome/themes/default/layouts/spiralw.png"
+theme.layout_dwindle = "/usr/share/awesome/themes/default/layouts/dwindlew.png"
+theme.layout_cornernw = "/usr/share/awesome/themes/default/layouts/cornernww.png"
+theme.layout_cornerne = "/usr/share/awesome/themes/default/layouts/cornernew.png"
+theme.layout_cornersw = "/usr/share/awesome/themes/default/layouts/cornersww.png"
+theme.layout_cornerse = "/usr/share/awesome/themes/default/layouts/cornersew.png"
+
+-- Define the icon theme for application icons. If not set then the icons
+-- from /usr/share/icons and /usr/share/icons/hicolor will be used.
+theme.icon_theme = nil
 
 return theme
