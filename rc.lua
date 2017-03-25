@@ -347,19 +347,6 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Up",    function () awful.client.incwfact( 0.10)  end,
               {description = "increase slave size", group = "layout"}),
 
-    -- TODO: broken for some reason
-    awful.key({ modkey, "Shift"   }, "h",     function () awful.client.setwfact(0.33)     end,
-              {description = "set master to 33% of the screen", group = "layout"}),
-    awful.key({ modkey, "Shift"   }, "l",     function () awful.client.setwfact(0.66)     end,
-              {description = "set master to 66% of the screen", group = "layout"}),
-    awful.key({ modkey, "Shift"   }, "space", function () awful.client.setwfact(0.50)     end,
-              {description = "set master to 50% of the screen", group = "layout"}),
-
-
-
-
-
-
     awful.key({ modkey,           }, ",",     function () awful.tag.incnmaster( 1, nil, true) end,
               {description = "increase the number of master clients", group = "layout"}),
     awful.key({ modkey,           }, ".",     function () awful.tag.incnmaster(-1, nil, true) end,
@@ -428,6 +415,13 @@ clientkeys = awful.util.table.join(
               {description = "toggle keep on top", group = "client"}),
     awful.key({ modkey,           }, "s",      function (c) c.sticky = not c.sticky          end,
               {description = "toggle sticky", group = "client"}),
+    -- TODO: broken for some reason
+    awful.key({ modkey, "Shift"   }, "h",     function (c) c.first_tag.master_width_factor = 0.33 end,
+              {description = "set master to 33% of the screen", group = "layout"}),
+    awful.key({ modkey, "Shift"   }, "l",     function (c) c.first_tag.master_width_factor = 0.66 end,
+              {description = "set master to 66% of the screen", group = "layout"}),
+    awful.key({ modkey, "Shift"   }, "space", function (c) c.first_tag.master_width_factor = 0.50 end,
+              {description = "set master to 50% of the screen", group = "layout"}),
     awful.key({ modkey,           }, "n",
         function (c)
             -- The client currently has the input focus, so it cannot be
@@ -438,10 +432,13 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey,           }, "m",
         function (c)
            -- TODO: fix resize
-           local mwfact = awful.tag.getmwfact()
-           awful.tag.setmwfact(0.85)
+           -- local mwfact = awful.tag.getmwfact()
+           local mwfact = c.first_tag.master_width_factor
+           -- awful.tag.setmwfact(0.85)
+           c.first_tag.master_width_factor = 0.85
            lain.util.magnify_client(c)
-           awful.tag.setmwfact(mwfact)
+           -- awful.tag.setmwfact(mwfact)
+           c.first_tag.master_width_factor = mwfact
            c:raise()
         end,
         {description = "magnify", group = "client"}),
