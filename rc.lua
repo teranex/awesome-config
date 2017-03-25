@@ -17,8 +17,7 @@ local lain = require("lain")
 -- TODO: vicious
 
 -- Load Debian menu entries
--- TODO: disable loading of debian.menu?
-require("debian.menu")
+-- require("debian.menu")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -29,7 +28,6 @@ if awesome.startup_errors then
                      text = awesome.startup_errors })
 end
 
--- naughty.config.defaults.height = 80
 naughty.config.defaults.icon_size = 48
 naughty.config.defaults.timeout = 10
 naughty.config.presets.normal.opacity = 0.85
@@ -101,7 +99,6 @@ awful.layout.layouts = {
 -- TODO: sharedtags
 
 -- {{{ Helper functions
--- TODO: Nodig?
 -- local function client_menu_toggle_fn()
 --     local instance = nil
 --
@@ -415,7 +412,7 @@ clientkeys = awful.util.table.join(
               {description = "toggle keep on top", group = "client"}),
     awful.key({ modkey,           }, "s",      function (c) c.sticky = not c.sticky          end,
               {description = "toggle sticky", group = "client"}),
-    -- TODO: broken for some reason
+
     awful.key({ modkey, "Shift"   }, "h",     function (c) c.first_tag.master_width_factor = 0.33 end,
               {description = "set master to 33% of the screen", group = "layout"}),
     awful.key({ modkey, "Shift"   }, "l",     function (c) c.first_tag.master_width_factor = 0.66 end,
@@ -431,13 +428,9 @@ clientkeys = awful.util.table.join(
         {description = "minimize", group = "client"}),
     awful.key({ modkey,           }, "m",
         function (c)
-           -- TODO: fix resize
-           -- local mwfact = awful.tag.getmwfact()
            local mwfact = c.first_tag.master_width_factor
-           -- awful.tag.setmwfact(0.85)
            c.first_tag.master_width_factor = 0.85
            lain.util.magnify_client(c)
-           -- awful.tag.setmwfact(mwfact)
            c.first_tag.master_width_factor = mwfact
            c:raise()
         end,
@@ -455,6 +448,7 @@ clientkeys = awful.util.table.join(
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it works on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
+-- TODO change to 12 once sharedtags is ok
 for i = 1, 9 do
     globalkeys = awful.util.table.join(globalkeys,
         -- View tag only.
@@ -568,7 +562,7 @@ awful.rules.rules = {
          properties = { floating = true,
                         placement = awful.placement.centered
          }
-    },
+      },
 
       -- Firefox, but only browser windows (Navigator), no dialogs etc
       { rule = { class = "Firefox", instance = "Navigator" },
