@@ -11,9 +11,10 @@ local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup").widget
 
--- TODO: lain
 local lain = require("lain")
--- TODO: sharedtags
+
+local sharedtags = require("sharedtags")
+
 -- TODO: vicious
 
 -- Load Debian menu entries
@@ -94,9 +95,22 @@ awful.layout.layouts = {
     -- awful.layout.suit.corner.se,
     -- TODO: lain centerwork terug toevoegen?
 }
--- }}}
 
--- TODO: sharedtags
+local tags = sharedtags({
+    { name = "1", layout = awful.layout.layouts[1] },
+    { name = "2", layout = awful.layout.layouts[1] },
+    { name = "3", layout = awful.layout.layouts[1] },
+    { name = "4", layout = awful.layout.layouts[1] },
+    { name = "5", layout = awful.layout.layouts[1] },
+    { name = "6", layout = awful.layout.layouts[1] },
+    { name = "7", layout = awful.layout.layouts[1] },
+    { name = "8", layout = awful.layout.layouts[1] },
+    { name = "9", layout = awful.layout.layouts[1] },
+    { name = "0", layout = awful.layout.layouts[1], screen = 1 },
+    { name = "-", layout = awful.layout.layouts[4], screen = 1 }, -- messaging, use fair layout
+    { name = "=", layout = awful.layout.layouts[1], screen = 1 }
+})
+-- }}}
 
 -- {{{ Helper functions
 -- local function client_menu_toggle_fn()
@@ -208,9 +222,14 @@ awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
     set_wallpaper(s)
 
-    -- TODO: sharedtags
     -- Each screen has its own tag table.
-    awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+    -- awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+    -- TODO: move tags to new screen, is this needed?
+    -- Assign tags to the newly connected screen here,
+    -- if desired:
+    -- sharedtags.viewonly(tags["0"], s)
+    -- sharedtags.viewonly(tags["-"], s)
+    -- sharedtags.viewonly(tags["="], s)
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -443,21 +462,20 @@ clientkeys = awful.util.table.join(
         {description = "maximize", group = "client"})
 )
 
--- TODO CONTINUE HERE
-
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it works on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
--- TODO change to 12 once sharedtags is ok
-for i = 1, 9 do
+for i = 1, 12 do
     globalkeys = awful.util.table.join(globalkeys,
         -- View tag only.
         awful.key({ modkey }, "#" .. i + 9,
                   function ()
                         local screen = awful.screen.focused()
-                        local tag = screen.tags[i]
+                        -- local tag = screen.tags[i]
+                        local tag = tags[i]
                         if tag then
-                           tag:view_only()
+                           -- tag:view_only(tag, screen)
+                           sharedtags.viewonly(tag, screen)
                         end
                   end,
                   {description = "view tag #"..i, group = "tag"}),
@@ -465,9 +483,11 @@ for i = 1, 9 do
         awful.key({ modkey, "Control" }, "#" .. i + 9,
                   function ()
                       local screen = awful.screen.focused()
-                      local tag = screen.tags[i]
+                      -- local tag = screen.tags[i]
+                      local tag = tags[i]
                       if tag then
-                         awful.tag.viewtoggle(tag)
+                         -- awful.tag.viewtoggle(tag)
+                         sharedtags.viewtoggle(tag, screen)
                       end
                   end,
                   {description = "toggle tag #" .. i, group = "tag"}),
@@ -475,9 +495,14 @@ for i = 1, 9 do
         awful.key({ modkey, "Shift" }, "#" .. i + 9,
                   function ()
                       if client.focus then
-                          local tag = client.focus.screen.tags[i]
+                          -- local tag = client.focus.screen.tags[i]
+                          local tag = tags[i]
                           if tag then
                               client.focus:move_to_tag(tag)
+                              -- also jump to the target tag if it is not visible on any screen
+                              -- if not tag.selected then
+                              --    sharedtags.viewonly(tag)
+                              -- end
                           end
                      end
                   end,
@@ -486,7 +511,8 @@ for i = 1, 9 do
         awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9,
                   function ()
                       if client.focus then
-                          local tag = client.focus.screen.tags[i]
+                          -- local tag = client.focus.screen.tags[i]
+                          local tag = tags[i]
                           if tag then
                               client.focus:toggle_tag(tag)
                           end
@@ -550,7 +576,7 @@ awful.rules.rules = {
 
 
       { rule = { class = "Thunderbird", instance = "Mail" },
-         properties = { tag = "1" } },
+         properties = { tag = tags["1"] } },
       { rule = { class = "Thunderbird", instance = "Msgcompose" },
          properties = {}, callback = awful.client.setslave },
 
@@ -566,15 +592,15 @@ awful.rules.rules = {
 
       -- Firefox, but only browser windows (Navigator), no dialogs etc
       { rule = { class = "Firefox", instance = "Navigator" },
-         properties = { tag = "2" } },
+         properties = { tag = tags["2"] } },
 
       { rule = { class = "Pidgin" },
-         properties = { tag = "-" } },
+         properties = { tag = tags["-"] } },
 
       { rule = { class = "banshee" },
-         properties = { tag = "=" } },
+         properties = { tag = tags["="] } },
       { rule = { class = "Spotify" },
-         properties = { tag = "=" } },
+         properties = { tag = tags["="] } },
 
       { rule = { class = "Shutter" },
          properties = { floating = true } },
