@@ -553,10 +553,59 @@ awful.rules.rules = {
         }
       }, properties = { floating = true }},
 
-    -- Add titlebars to normal clients and dialogs
-    { rule_any = {type = { "normal", "dialog" }
-      }, properties = { titlebars_enabled = true }
+
+      { rule = { class = "Thunderbird", instance = "Mail" },
+         properties = { tag = "1" } },
+      { rule = { class = "Thunderbird", instance = "Msgcompose" },
+         properties = {}, callback = awful.client.setslave },
+
+      { rule = { class = "Hamster-indicator" },
+         properties = {}, callback = awful.client.setslave },
+
+      -- GPG Passphrase dialog
+      { rule = { class = "Gcr-prompter" },
+         properties = { floating = true,
+                        placement = awful.placement.centered
+         }
     },
+
+      -- Firefox, but only browser windows (Navigator), no dialogs etc
+      { rule = { class = "Firefox", instance = "Navigator" },
+         properties = { tag = "2" } },
+
+      { rule = { class = "Pidgin" },
+         properties = { tag = "-" } },
+
+      { rule = { class = "banshee" },
+         properties = { tag = "=" } },
+      { rule = { class = "Spotify" },
+         properties = { tag = "=" } },
+
+      { rule = { class = "Shutter" },
+         properties = { floating = true } },
+
+      -- { rule = { class = "Terminator", instance = "terminator" },
+      --    properties = { floating = false } },
+      -- Terminator is also started as a quake style terminal, bound to <F12>:
+      -- `terminator --hidden --borderless --geometry 1920x920+0+21 --classname="quake-terminator" &`
+      { rule = { class = "Terminator", instance = "quake-terminator" },
+         properties = { floating = true,
+                        maximized_horizontal = true,
+                        border_width = 0,
+                        opacity = 0.95,
+                        height = 920, 
+                        y = 21 }
+      },
+
+      { rule = { class = "Xfce4-notifyd" },
+         properties = { focus = false,
+                        raise = false,
+                        border_width = 0 } }
+
+    -- Add titlebars to normal clients and dialogs
+    -- { rule_any = {type = { "normal", "dialog" }
+    --   }, properties = { titlebars_enabled = true }
+    -- },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
     -- { rule = { class = "Firefox" },
