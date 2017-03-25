@@ -15,7 +15,7 @@ local lain = require("lain")
 
 local sharedtags = require("sharedtags")
 
--- TODO: vicious
+local vicious = require("vicious")
 
 -- Load Debian menu entries
 -- require("debian.menu")
@@ -157,7 +157,15 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock(" %a %b %d, %H:%M ", 1)
 
--- TODO: cpuwidget
+-- Initialize widget
+cpuwidget = awful.widget.graph()
+-- Graph properties
+cpuwidget:set_width(50)
+cpuwidget:set_background_color(theme.bg_normal)
+cpuwidget:set_color(theme.fg_focus)
+-- Register widget
+vicious.register(cpuwidget, vicious.widgets.cpu, "$1", 1)
+cpuwidget_mirrored = wibox.layout.mirror(cpuwidget, { horizontal = true })
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = awful.util.table.join(
@@ -248,10 +256,9 @@ awful.screen.connect_for_each_screen(function(s)
     s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, tasklist_buttons)
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s, height = 21})
+    s.mywibox = awful.wibar({ position = "top", screen = s, height = 22})
 
     -- Add widgets to the wibox
-    -- TODO: add cpu widget
     -- TODO: make a distinction between first and next screens
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
@@ -266,6 +273,7 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             -- mykeyboardlayout,
             wibox.widget.systray(),
+            cpuwidget_mirrored,
             mytextclock,
             s.mylayoutbox,
         },
