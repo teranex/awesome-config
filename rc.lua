@@ -616,6 +616,9 @@ awful.rules.rules = {
       { rule = { class = "Shutter" },
          properties = { floating = true } },
 
+      { rule = { class = "Gvim" },
+         properties = { size_hints_honor = true } },
+
       -- { rule = { class = "Terminator", instance = "terminator" },
       --    properties = { floating = false } },
       -- Terminator is also started as a quake style terminal, bound to <F12>:
