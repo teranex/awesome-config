@@ -9,6 +9,7 @@
 theme                               = {}
 
 theme.icon_dir                      = os.getenv("HOME") .. "/.config/awesome/themes/holo/icons"
+theme.layouts_dir                   = os.getenv("HOME") .. "/.config/awesome/themes/holo/layouts"
 
 theme.wallpaper                     = os.getenv("HOME") .. "/.config/awesome/themes/holo/wall.png"
 
@@ -116,22 +117,22 @@ theme.tasklist_disable_icon         = true
 -- theme.layout_termfair               = theme.icon_dir .. "/layouts/termfairw.png"
 
 -- You can use your own layout icons like this:
-theme.layout_fairh = "/usr/share/awesome/themes/default/layouts/fairhw.png"
-theme.layout_fairv = "/usr/share/awesome/themes/default/layouts/fairvw.png"
-theme.layout_floating  = "/usr/share/awesome/themes/default/layouts/floatingw.png"
-theme.layout_magnifier = "/usr/share/awesome/themes/default/layouts/magnifierw.png"
-theme.layout_max = "/usr/share/awesome/themes/default/layouts/maxw.png"
-theme.layout_fullscreen = "/usr/share/awesome/themes/default/layouts/fullscreenw.png"
-theme.layout_tilebottom = "/usr/share/awesome/themes/default/layouts/tilebottomw.png"
-theme.layout_tileleft   = "/usr/share/awesome/themes/default/layouts/tileleftw.png"
-theme.layout_tile = "/usr/share/awesome/themes/default/layouts/tilew.png"
-theme.layout_tiletop = "/usr/share/awesome/themes/default/layouts/tiletopw.png"
-theme.layout_spiral  = "/usr/share/awesome/themes/default/layouts/spiralw.png"
-theme.layout_dwindle = "/usr/share/awesome/themes/default/layouts/dwindlew.png"
-theme.layout_cornernw = "/usr/share/awesome/themes/default/layouts/cornernww.png"
-theme.layout_cornerne = "/usr/share/awesome/themes/default/layouts/cornernew.png"
-theme.layout_cornersw = "/usr/share/awesome/themes/default/layouts/cornersww.png"
-theme.layout_cornerse = "/usr/share/awesome/themes/default/layouts/cornersew.png"
+theme.layout_fairh = theme.layouts_dir .. "/fairhw.png"
+theme.layout_fairv = theme.layouts_dir .. "/fairvw.png"
+theme.layout_floating  = theme.layouts_dir .. "/floatingw.png"
+theme.layout_magnifier = theme.layouts_dir .. "/magnifierw.png"
+theme.layout_max = theme.layouts_dir .. "/maxw.png"
+theme.layout_fullscreen = theme.layouts_dir .. "/fullscreenw.png"
+theme.layout_tilebottom = theme.layouts_dir .. "/tilebottomw.png"
+theme.layout_tileleft   = theme.layouts_dir .. "/tileleftw.png"
+theme.layout_tile = theme.layouts_dir .. "/tilew.png"
+theme.layout_tiletop = theme.layouts_dir .. "/tiletopw.png"
+theme.layout_spiral  = theme.layouts_dir .. "/spiralw.png"
+theme.layout_dwindle = theme.layouts_dir .. "/dwindlew.png"
+theme.layout_cornernw = theme.layouts_dir .. "/cornernww.png"
+theme.layout_cornerne = theme.layouts_dir .. "/cornernew.png"
+theme.layout_cornersw = theme.layouts_dir .. "/cornersww.png"
+theme.layout_cornerse = theme.layouts_dir .. "/cornersew.png"
 
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
