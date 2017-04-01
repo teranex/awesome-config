@@ -69,10 +69,13 @@ editor_cmd = terminal .. " -e " .. editor
 -- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
 
--- if we are running on ChromeOS use alt as the modkey as it obviously
--- does not have a windows key
-if io.open("/usr/local/bin/croutonversion", "r") then
+-- set the modkey to alt when running on 'peppy', my chromebook which runs GalliumOS
+hostname = io.popen("uname -n"):read()
+if hostname == "peppy" then
    modkey = "Mod1"
+   -- also set the terminal as terminator has some drawing issues
+   -- on peppy with awesome 4.0
+   -- terminal = "xfce4-terminal"
 end
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
