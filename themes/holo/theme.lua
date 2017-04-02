@@ -6,7 +6,13 @@
                                 
 --]]
 
+local rounded_shape = function(cr, width, height)
+     require("gears.shape").rounded_rect(cr, width, height, 6)
+end
+
 theme                               = {}
+
+theme.notification_shape            = rounded_shape
 
 theme.icon_dir                      = os.getenv("HOME") .. "/.config/awesome/themes/holo/icons"
 theme.layouts_dir                   = os.getenv("HOME") .. "/.config/awesome/themes/holo/layouts"
