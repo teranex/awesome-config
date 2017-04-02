@@ -110,7 +110,7 @@ local tags = sharedtags({
     { name = "8", layout = awful.layout.layouts[1] },
     { name = "9", layout = awful.layout.layouts[1] },
     { name = "0", layout = awful.layout.layouts[1], screen = 1 },
-    { name = "-", layout = awful.layout.layouts[4], screen = 1 }, -- messaging, use fair layout
+    { name = "-", layout = awful.layout.layouts[5], screen = 1 }, -- messaging, use corner layout
     { name = "=", layout = awful.layout.layouts[1], screen = 1 }
 })
 for tag_id,tag in pairs(tags) do
