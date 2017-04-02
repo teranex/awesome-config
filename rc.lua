@@ -664,6 +664,9 @@ client.connect_signal("manage", function (c)
         -- Prevent clients from being unreachable after screen count changes.
         awful.placement.no_offscreen(c)
     end
+   c.shape = function(cr, width ,height)
+      gears.shape.rounded_rect(cr, width, height, 6)
+   end
 end)
 
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
@@ -719,3 +722,17 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+-- client.connect_signal("focus", function (c)
+   -- c.shape = function(cr, width ,height)
+   --    -- gears.shape.rounded_rect(cr, width, height, 20)
+   --    gears.shape.partially_rounded_rect(cr, width, height, false, false, true, false, 20)
+   -- end
+   -- c.opacity = 1
+-- end)
+
+-- client.connect_signal("unfocus", function (c)
+   -- c.shape = function(cr, width ,height)
+   --    gears.shape.rounded_rect(cr, width, height, 5)
+   -- end
+   -- c.opacity = 0.8
+-- end)
