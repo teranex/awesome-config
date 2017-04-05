@@ -31,10 +31,24 @@ end
 
 naughty.config.defaults.icon_size = 48
 naughty.config.defaults.timeout = 10
+naughty.config.defaults.margin = 10
+naughty.config.defaults.screen = screen.primary
 naughty.config.presets.normal.opacity = 0.85
 naughty.config.presets.low.opacity = 0.85
 naughty.config.presets.critical.opacity = 0.85
-naughty.config.defaults.margin = 10
+naughty.config.padding = 6
+naughty.config.spacing = 3
+naughty.config.notify_callback = function(args)
+   -- remove any buttons from the notification
+   args.actions = nil
+   return args
+end
+-- some icons are missing in notifications, this is a hack to at least fix the most important ones
+table.insert(naughty.config.icon_dirs, '/usr/share/icons/elementary-xfce-dark/panel/48/')
+table.insert(naughty.config.icon_dirs, '/usr/share/icons/hicolor/48x48/apps/')
+table.insert(naughty.config.icon_dirs, '/usr/share/icons/elementary-xfce/panel/48/')
+table.insert(naughty.config.icon_dirs, '/usr/share/icons/elementary-xfce/notifications/48/')
+
 
 -- Handle runtime errors after startup
 do
