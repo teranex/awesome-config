@@ -97,7 +97,7 @@ awful.layout.layouts = {
     -- awful.layout.suit.floating,
     awful.layout.suit.tile,
     -- awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
+    -- awful.layout.suit.tile.bottom,
     -- awful.layout.suit.tile.top,
     awful.layout.suit.fair,
     awful.layout.suit.fair.horizontal,
@@ -110,7 +110,6 @@ awful.layout.layouts = {
     -- awful.layout.suit.corner.ne,
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
-    -- TODO: lain centerwork terug toevoegen?
 }
 
 local tags = sharedtags({
@@ -124,7 +123,7 @@ local tags = sharedtags({
     { name = "8", layout = awful.layout.layouts[1] },
     { name = "9", layout = awful.layout.layouts[1] },
     { name = "0", layout = awful.layout.layouts[1], screen = 1 },
-    { name = "-", layout = awful.layout.layouts[5], screen = 1 }, -- messaging, use corner layout
+    { name = "-", layout = awful.layout.layouts[4], screen = 1 }, -- messaging, use corner layout
     { name = "=", layout = awful.layout.layouts[1], screen = 1 }
 })
 for tag_id,tag in pairs(tags) do
