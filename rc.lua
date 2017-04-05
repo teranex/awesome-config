@@ -254,9 +254,11 @@ awful.screen.connect_for_each_screen(function(s)
     -- TODO: move tags to new screen, is this needed?
     -- Assign tags to the newly connected screen here,
     -- if desired:
-    sharedtags.viewonly(tags["0"], s)
-    sharedtags.movetag(tags["-"], s)
-    sharedtags.movetag(tags["="], s)
+    if s ~= screen.primary then
+      sharedtags.viewonly(tags["0"], s)
+      sharedtags.movetag(tags["-"], s)
+      sharedtags.movetag(tags["="], s)
+   end
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
