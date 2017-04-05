@@ -177,14 +177,14 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 mytextclock = wibox.widget.textclock(" %a %b %d, %H:%M ", 1)
 
 -- Initialize widget
-cpuwidget = awful.widget.graph()
+cpuwidget = wibox.widget.graph()
 -- Graph properties
 cpuwidget:set_width(50)
 cpuwidget:set_background_color(theme.bg_normal)
 cpuwidget:set_color(theme.fg_focus)
 -- Register widget
 vicious.register(cpuwidget, vicious.widgets.cpu, "$1", 1)
-cpuwidget_mirrored = wibox.layout.mirror(cpuwidget, { horizontal = true })
+cpuwidget_mirrored = wibox.container.mirror(cpuwidget, { horizontal = true })
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = awful.util.table.join(
@@ -736,16 +736,16 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 -- client.connect_signal("focus", function (c)
-   -- c.shape = function(cr, width ,height)
-   --    -- gears.shape.rounded_rect(cr, width, height, 20)
-   --    gears.shape.partially_rounded_rect(cr, width, height, false, false, true, false, 20)
-   -- end
-   -- c.opacity = 1
+--    c.shape = function(cr, width ,height)
+--       -- gears.shape.rounded_rect(cr, width, height, 20)
+--       gears.shape.partially_rounded_rect(cr, width, height, true, false, false, false, 25)
+--    end
+--    -- c.opacity = 1
 -- end)
-
+--
 -- client.connect_signal("unfocus", function (c)
-   -- c.shape = function(cr, width ,height)
-   --    gears.shape.rounded_rect(cr, width, height, 5)
-   -- end
-   -- c.opacity = 0.8
+--    c.shape = function(cr, width ,height)
+--       gears.shape.rounded_rect(cr, width, height, 5)
+--    end
+--    -- c.opacity = 0.8
 -- end)
