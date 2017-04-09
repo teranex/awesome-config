@@ -610,6 +610,8 @@ awful.rules.rules = {
          properties = { tag = tags["1"] } },
       { rule = { class = "Thunderbird", instance = "Msgcompose" },
          properties = {}, callback = awful.client.setslave },
+      { rule = { class = "Thunderbird", instance = "Dialog" },
+         properties = { placement = awful.placement.centered } },
 
       { rule = { class = "Hamster-indicator" },
          properties = {}, callback = awful.client.setslave },
