@@ -623,6 +623,9 @@ awful.rules.rules = {
          }
       },
 
+      { rule = { class = "Speedcrunch" },
+         properties = {}, callback = awful.client.setslave },
+
       -- Firefox, but only browser windows (Navigator), no dialogs etc
       { rule = { class = "Firefox", instance = "Navigator" },
          properties = { tag = tags["2"] } },
