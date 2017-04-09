@@ -96,21 +96,25 @@ end
 awful.layout.layouts = {
     -- awful.layout.suit.floating,
     awful.layout.suit.tile,
+    lain.layout.cascade.tile,
     -- awful.layout.suit.tile.left,
     -- awful.layout.suit.tile.bottom,
     -- awful.layout.suit.tile.top,
-    awful.layout.suit.fair,
+    -- awful.layout.suit.fair,
     awful.layout.suit.fair.horizontal,
     -- awful.layout.suit.spiral,
     -- awful.layout.suit.spiral.dwindle,
     -- awful.layout.suit.max,
     -- awful.layout.suit.max.fullscreen,
     -- awful.layout.suit.magnifier,
-    awful.layout.suit.corner.nw,
     -- awful.layout.suit.corner.ne,
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
+    awful.layout.suit.corner.nw,
 }
+
+lain.layout.cascade.tile.offset_x      = 0
+lain.layout.cascade.tile.ncol          = 2
 
 local tags = sharedtags({
     { name = "1", layout = awful.layout.layouts[1] },
