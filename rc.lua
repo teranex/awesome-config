@@ -255,11 +255,10 @@ awful.screen.connect_for_each_screen(function(s)
 
     -- Each screen has its own tag table.
     -- awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
-    -- TODO: move tags to new screen, is this needed?
     -- Assign tags to the newly connected screen here,
     -- if desired:
     if s ~= screen.primary then
-      sharedtags.viewonly(tags["0"], s)
+      sharedtags.movetag(tags["0"], s)
       sharedtags.movetag(tags["-"], s)
       sharedtags.movetag(tags["="], s)
    end
@@ -440,7 +439,6 @@ globalkeys = awful.util.table.join(
 
     -- if I can't fix my muscle-memory, let's fix it with a shortcut:
     -- make <modkey>+volumeUp/Down also work (next to fn+volUp/Down on Logitech K810)
-    -- TODO: retest
     awful.key({ modkey            }, "F9",    function () awful.spawn( "amixer set Master 2.5%-" ) end ),
     awful.key({ modkey            }, "F10",    function () awful.spawn( "amixer set Master 2.5%+" ) end )
 )
