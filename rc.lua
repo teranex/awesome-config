@@ -96,11 +96,11 @@ end
 awful.layout.layouts = {
     -- awful.layout.suit.floating,
     awful.layout.suit.tile,
-    lain.layout.cascade.tile,
+    -- lain.layout.cascade.tile,
     -- awful.layout.suit.tile.left,
     -- awful.layout.suit.tile.bottom,
     -- awful.layout.suit.tile.top,
-    -- awful.layout.suit.fair,
+    awful.layout.suit.fair,
     awful.layout.suit.fair.horizontal,
     -- awful.layout.suit.spiral,
     -- awful.layout.suit.spiral.dwindle,
@@ -127,7 +127,7 @@ local tags = sharedtags({
     { name = "8", layout = awful.layout.layouts[1] },
     { name = "9", layout = awful.layout.layouts[1] },
     { name = "0", layout = awful.layout.layouts[1], screen = 1 },
-    { name = "-", layout = awful.layout.layouts[4], screen = 1 }, -- messaging, use corner layout
+    { name = "-", layout = awful.layout.layouts[3], screen = 1 }, -- messaging, use corner layout
     { name = "=", layout = awful.layout.layouts[1], screen = 1 }
 })
 for tag_id,tag in pairs(tags) do
@@ -394,6 +394,12 @@ globalkeys = awful.util.table.join(
               {description = "decrease slave size", group = "layout"}),
     awful.key({ modkey,           }, "Up",    function () awful.client.incwfact( 0.10)  end,
               {description = "increase slave size", group = "layout"}),
+    -- reset window facts
+    awful.key({ modkey, "Shift"   }, "o",     function () awful.screen.focused().selected_tag.windowfact = {} end,
+              {description = "reset the window facts", group = "layout"}),
+    -- 'maximize' the client inside the current column
+    awful.key({ modkey, "Control"   }, "o",     function () awful.client.setwfact(0.85) end,
+              {description = "'maximize' the client inside the current column", group = "layout"}),
 
     awful.key({ modkey,           }, ",",     function () awful.tag.incnmaster( 1, nil, true) end,
               {description = "increase the number of master clients", group = "layout"}),
@@ -610,6 +616,8 @@ awful.rules.rules = {
          properties = { tag = tags["1"] } },
       { rule = { class = "Thunderbird", instance = "Msgcompose" },
          properties = {}, callback = awful.client.setslave },
+      { rule = { class = "Thunderbird", instance = "Calendar" },
+         properties = {}, callback = awful.client.setslave },
       { rule = { class = "Thunderbird", instance = "Dialog" },
          properties = { placement = awful.placement.centered } },
 
@@ -623,12 +631,23 @@ awful.rules.rules = {
          }
       },
 
+      -- Remember the Milk Smart Add
+      { rule = { class = "Remember The Milk", name = "Remember The Milk - Global Smart Add" },
+        properties = { floating = true,
+                       placement = awful.placement.centered,
+                       border_width = 0,} },
+
       { rule = { class = "Speedcrunch" },
          properties = {}, callback = awful.client.setslave },
 
       -- Firefox, but only browser windows (Navigator), no dialogs etc
       { rule = { class = "Firefox", instance = "Navigator" },
          properties = { tag = tags["2"] } },
+      -- Min Vid window
+      { rule = { class = "Firefox", instance = "Toplevel" },
+        properties = { floating = true,
+                       sticky = true,
+                       placement = awful.placement.bottom_right } },
 
       { rule = { class = "Pidgin" },
          properties = { tag = tags["-"] } },
@@ -641,18 +660,21 @@ awful.rules.rules = {
       { rule = { class = "Shutter" },
          properties = { floating = true } },
 
-      { rule = { class = "Gvim" },
-         properties = { size_hints_honor = true } },
+      -- { rule = { class = "Xfce4-terminal" },
+      --    properties = { floating = true } },
+      --
+      -- { rule = { class = "Gvim" },
+      --    properties = { size_hints_honor = true } },
 
       -- { rule = { class = "Terminator", instance = "terminator" },
       --    properties = { floating = false } },
       -- Terminator is also started as a quake style terminal, bound to <F12>:
       -- `terminator --hidden --borderless --geometry 1920x920+0+21 --classname="quake-terminator" &`
-      { rule = { class = "Terminator", instance = "quake-terminator" },
+      { rule = { class = "Terminator", name = "quake-terminator" },
          properties = { floating = true,
                         maximized_horizontal = true,
                         border_width = 0,
-                        opacity = 0.95,
+                        opacity = 0.85,
                         height = 920, 
                         y = 21 }
       },
