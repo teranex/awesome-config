@@ -5,7 +5,7 @@ then
     cat ~/bashmarks && find /home/jeroen/Projecten/ -maxdepth 3 -type d -not -path '*/\.*'
 else
     # coproc Thunar "$@"
-    # coproc terminator -e "export TERM='xterm-256color'; ranger '$@'"
-    coproc terminator -e "export TERM='xterm-256color'; cd '$@' && ~/src/texas/texas.zsh"
+    coproc terminator -e "export TERM='xterm-256color'; ranger '$@'"
+    # coproc terminator -e "export TERM='xterm-256color'; cd '$@' && ~/src/texas/texas.zsh"
 fi
 

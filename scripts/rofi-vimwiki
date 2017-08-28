@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ -z "$@" ]
+then
+    echo TODAY
+    cd ~/vimwiki/ && find -type f -name \*.md | cut -c3-
+else
+    if [[ "$@" == "TODAY" ]]; then
+        coproc gvim "/home/jeroen/vimwiki/diary/`date +%Y-%m-%d`.md"
+    else
+        coproc gvim "/home/jeroen/vimwiki/$@"
+    fi
+fi

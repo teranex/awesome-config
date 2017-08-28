@@ -9,8 +9,8 @@ fi
 
 PATH=$PATH:`dirname $0` rofi \
     -show $show \
-    -modi combi,window,drun,dir:rofi-dirs \
-    -combi-modi media:rofi-mediaplayers,window,drun,vim:rofi-vim,dir:rofi-dirs \
+    -modi combi,window,drun,vimwiki:rofi-vimwiki,dir:rofi-dirs \
+    -combi-modi media:rofi-mediaplayers,window,drun,vim:rofi-vim,vimwiki:rofi-vimwiki,dir:rofi-dirs \
     -sidebar-mode \
     -matching fuzzy \
     -opacity 90 \
