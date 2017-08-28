@@ -17,7 +17,7 @@ theme.notification_shape            = rounded_shape
 theme.icon_dir                      = os.getenv("HOME") .. "/.config/awesome/themes/holo/icons"
 theme.layouts_dir                   = os.getenv("HOME") .. "/.config/awesome/themes/holo/layouts"
 
-theme.wallpaper                     = os.getenv("HOME") .. "/.config/awesome/themes/holo/wall.png"
+-- theme.wallpaper                     = os.getenv("HOME") .. "/.config/awesome/themes/holo/wall.png"
 
 theme.topbar_path                   = "png:" .. theme.icon_dir .. "/topbar/"
 
@@ -29,8 +29,10 @@ theme.fg_focus                      = "#0099CC"
 theme.bg_normal                     = "#242424"
 theme.fg_urgent                     = "#FD971F"
 theme.bg_urgent                     = "#2A1F1E"
-theme.bg_minimize                   = theme.bg_normal
-theme.fg_minimize                   = "#688696"
+-- theme.bg_minimize                   = theme.bg_normal
+-- theme.fg_minimize                   = "#688696"
+theme.bg_minimize                   = "#0099cc"
+theme.fg_minimize                   = theme.fg_normal
 theme.useless_gap                   = 3
 theme.border_width                  = 2
 -- theme.border_normal                 = "#252525"
