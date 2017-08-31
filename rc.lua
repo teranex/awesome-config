@@ -101,34 +101,38 @@ awful.layout.layouts = {
     -- awful.layout.suit.tile.bottom,
     -- awful.layout.suit.tile.top,
     awful.layout.suit.fair,
-    awful.layout.suit.fair.horizontal,
     -- awful.layout.suit.spiral,
     -- awful.layout.suit.spiral.dwindle,
-    -- awful.layout.suit.max,
     -- awful.layout.suit.max.fullscreen,
     -- awful.layout.suit.magnifier,
     -- awful.layout.suit.corner.ne,
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
     awful.layout.suit.corner.nw,
+    awful.layout.suit.max,
 }
 
 lain.layout.cascade.tile.offset_x      = 0
 lain.layout.cascade.tile.ncol          = 2
 
+local default_layout = awful.layout.suit.tile
+if hostname == "GPDPocket" then
+   default_layout = awful.layout.suit.max
+end
+
 local tags = sharedtags({
-    { name = "1", layout = awful.layout.layouts[1] },
-    { name = "2", layout = awful.layout.layouts[1] },
-    { name = "3", layout = awful.layout.layouts[1] },
-    { name = "4", layout = awful.layout.layouts[1] },
-    { name = "5", layout = awful.layout.layouts[1] },
-    { name = "6", layout = awful.layout.layouts[1] },
-    { name = "7", layout = awful.layout.layouts[1] },
-    { name = "8", layout = awful.layout.layouts[1] },
-    { name = "9", layout = awful.layout.layouts[1] },
-    { name = "0", layout = awful.layout.layouts[1], screen = 1 },
-    { name = "-", layout = awful.layout.layouts[3], screen = 1 }, -- messaging, use corner layout
-    { name = "=", layout = awful.layout.layouts[1], screen = 1 }
+    { name = "1", layout = default_layout },
+    { name = "2", layout = default_layout },
+    { name = "3", layout = default_layout },
+    { name = "4", layout = default_layout },
+    { name = "5", layout = default_layout },
+    { name = "6", layout = default_layout },
+    { name = "7", layout = default_layout },
+    { name = "8", layout = default_layout },
+    { name = "9", layout = default_layout },
+    { name = "0", layout = default_layout, screen = 1 },
+    { name = "-", layout = awful.layout.suit.corner.nw, screen = 1 }, -- messaging, use corner layout
+    { name = "=", layout = default_layout, screen = 1 }
 })
 for tag_id,tag in pairs(tags) do
    tag.master_width_factor = 0.66
@@ -280,7 +284,7 @@ awful.screen.connect_for_each_screen(function(s)
     s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, tasklist_buttons)
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s, height = 22})
+    s.mywibox = awful.wibar({ position = "top", screen = s, height = 32})
 
     -- Add widgets to the wibox
     -- TODO: make a distinction between first and next screens
