@@ -116,8 +116,10 @@ lain.layout.cascade.tile.offset_x      = 0
 lain.layout.cascade.tile.ncol          = 2
 
 local default_layout = awful.layout.suit.tile
+local wibox_height = 22
 if hostname == "GPDPocket" then
    default_layout = awful.layout.suit.max
+   wibox_height = 32
 end
 
 local tags = sharedtags({
@@ -284,7 +286,7 @@ awful.screen.connect_for_each_screen(function(s)
     s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, tasklist_buttons)
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s, height = 32})
+    s.mywibox = awful.wibar({ position = "top", screen = s, height = wibox_height})
 
     -- Add widgets to the wibox
     -- TODO: make a distinction between first and next screens
