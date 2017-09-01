@@ -147,4 +147,14 @@ theme.layout_cascadetile = theme.layouts_dir .. "/cascade.png"
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 theme.icon_theme = nil
 
+
+-- GPD Pocet specific
+local hostname = io.popen("uname -n"):read()
+if hostname == "GPDPocket" then
+    theme.font          = "Cantarell 20"
+    theme.taglist_bg_focus              = "png:" .. theme.icon_dir .. "/taglist_bg_focus_32px.png"
+    theme.taglist_squares_sel           = theme.icon_dir .. "/square_sel_hidpi.png"
+    theme.taglist_squares_unsel         = theme.icon_dir .. "/square_unsel_hidpi.png"
+end
+
 return theme
