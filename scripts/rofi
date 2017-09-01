@@ -1,10 +1,16 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ $# -eq 0 ]
 then
     show='combi'
 else
     show=$1
+fi
+
+FONT="mono 12" # default font according to man page
+
+if [ "$HOSTNAME" = "GPDPocket" ]; then
+    FONT="mono 20"
 fi
 
 PATH=$PATH:`dirname $0` rofi \
@@ -14,6 +20,7 @@ PATH=$PATH:`dirname $0` rofi \
     -sidebar-mode \
     -matching fuzzy \
     -opacity 90 \
+    -font "$FONT" \
     -separator-style none \
     -hide-scrollbar true \
     -no-fixed-num-lines \
