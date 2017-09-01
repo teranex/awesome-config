@@ -124,7 +124,7 @@ end
 
 local tags = sharedtags({
     { name = "1", layout = default_layout },
-    { name = "2", layout = default_layout },
+    { name = "2", layout = awful.layout.suit.max },
     { name = "3", layout = default_layout },
     { name = "4", layout = default_layout },
     { name = "5", layout = default_layout },
