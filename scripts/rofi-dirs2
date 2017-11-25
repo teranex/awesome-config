@@ -1,0 +1,50 @@
+#!/bin/bash
+
+function run_rofi {
+    rofi -dmenu -matching fuzzy -i \
+         -p "dir: " \
+         -mesg "      <b>Enter</b>: open terminal | <b>Alt-r</b>: run Ranger | <b>Alt-t</b>: run Thunar | <b>Alt-o</b>: filter files" \
+         -kb-custom-1 "Alt-r" \
+         -kb-custom-2 "Alt-t" \
+         -kb-custom-3 "Alt-o"
+}
+
+function run_rofi_files {
+    rofi -dmenu -matching glob -i -p "file: "
+}
+
+function dir_drilldown {
+    drill_result=$( (cd "$1" && /opt/fd/fd -tf ) | run_rofi_files )
+    drill_exit="$?"
+
+    echo $drill_result
+    echo $drill_exit
+
+    if [ "$drill_exit" -eq 0 ]
+    then
+        coproc xdg-open "$1/$drill_result"
+    fi
+}
+
+result=$( ~/scripts/list-my-dirs.sh | run_rofi )
+rofi_exit="$?"
+
+case "$rofi_exit" in
+    1)
+        exit
+        ;;
+    10)
+        cd $result
+        coproc terminator -e "ranger '$result'"
+        ;;
+    11)
+        coproc Thunar "$result"
+        ;;
+    12)
+        dir_drilldown "$result"
+        ;;
+    0)
+        cd "$result"
+        coproc terminator
+        ;;
+esac
