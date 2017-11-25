@@ -101,6 +101,7 @@ awful.layout.layouts = {
     -- awful.layout.suit.tile.bottom,
     -- awful.layout.suit.tile.top,
     awful.layout.suit.fair,
+    awful.layout.suit.fair.horizontal,
     -- awful.layout.suit.spiral,
     -- awful.layout.suit.spiral.dwindle,
     -- awful.layout.suit.max.fullscreen,
@@ -134,7 +135,7 @@ local tags = sharedtags({
     { name = "9", layout = default_layout },
     { name = "0", layout = default_layout, screen = 1 },
     { name = "-", layout = awful.layout.suit.corner.nw, screen = 1 }, -- messaging, use corner layout
-    { name = "=", layout = default_layout, screen = 1 }
+    { name = "=", layout = awful.layout.suit.max, screen = 1 }
 })
 for tag_id,tag in pairs(tags) do
    tag.master_width_factor = 0.66
