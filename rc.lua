@@ -654,6 +654,8 @@ awful.rules.rules = {
       { rule = { class = "Firefox", instance = "Toplevel" },
         properties = { floating = true,
                        sticky = true,
+                       width = 700,
+                       height = 394, -- 16:9 format
                        placement = awful.placement.bottom_right } },
 
       { rule = { class = "Pidgin" },
