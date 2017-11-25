@@ -7,26 +7,11 @@ else
     show=$1
 fi
 
-FONT="mono 12" # default font according to man page
-
-if [ "$HOSTNAME" = "GPDPocket" ]; then
-    FONT="mono 20"
-fi
-
 PATH=$PATH:`dirname $0` rofi \
     -show $show \
-    -modi combi,window,drun,vimwiki:rofi-vimwiki,dir:rofi-dirs \
-    -combi-modi media:rofi-mediaplayers,window,drun,vim:rofi-vim,vimwiki:rofi-vimwiki,dir:rofi-dirs \
+    -show-icons \
+    -modi combi,window,drun,ssh,vimwiki:rofi-vimwiki \
+    -combi-modi media:rofi-mediaplayers,window,drun,vim:rofi-vim,vimwiki:rofi-vimwiki \
     -sidebar-mode \
     -matching fuzzy \
-    -opacity 90 \
-    -font "$FONT" \
-    -separator-style none \
-    -hide-scrollbar true \
-    -no-fixed-num-lines \
-    -color-window "argb:E6303030, argb:E6303030" \
-    -color-normal "argb:00303030, #ffffff, argb:00303030, #0099cc, #ffffff" \
-    -color-active "argb:00303030, #808080, argb:00222222, #808080, #2d2828" \
-    -color-urgent "argb:002a1f1e, #fd971f, argb:682a1f1e, #fd971f, #2a1f1e"
-
-    # -color-normal "#303030, #ffffff, argb:2d222222, #0099cc, #ffffff" \
+    -hide-scrollbar true
