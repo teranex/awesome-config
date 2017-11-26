@@ -3,7 +3,7 @@
 function run_rofi {
     rofi -dmenu -matching fuzzy -i \
          -p "dir: " \
-         -mesg "      <b>Enter</b>: open terminal | <b>Alt-r</b>: run Ranger | <b>Alt-t</b>: run Thunar | <b>Alt-o</b>: filter files" \
+         -mesg "      <b>Enter</b>: terminal | <b>Alt-r</b>: Ranger | <b>Alt-t</b>: Thunar | <b>Alt-o</b>: files" \
          -kb-custom-1 "Alt-r" \
          -kb-custom-2 "Alt-t" \
          -kb-custom-3 "Alt-o"
@@ -13,12 +13,18 @@ function run_rofi_files {
     rofi -dmenu -matching glob -i -p "file: "
 }
 
-function dir_drilldown {
-    drill_result=$( (cd "$1" && /opt/fd/fd -tf ) | run_rofi_files )
-    drill_exit="$?"
+function dir_drilldown_files {
+    # cd to it so we only show the paths inside the dir, not the full paths
+    if [ -x /opt/fd/fd ]; then
+        cd "$1" && /opt/fd/fd -tf
+    else
+        cd "$1" && find -type f 2>&1 | grep -v "Permission denied"
+    fi
+}
 
-    echo $drill_result
-    echo $drill_exit
+function dir_drilldown {
+    drill_result=$( dir_drilldown_files "$1" | run_rofi_files )
+    drill_exit="$?"
 
     if [ "$drill_exit" -eq 0 ]
     then
@@ -34,7 +40,6 @@ case "$rofi_exit" in
         exit
         ;;
     10)
-        cd $result
         coproc terminator -e "ranger '$result'"
         ;;
     11)
