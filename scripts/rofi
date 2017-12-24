@@ -10,8 +10,10 @@ fi
 PATH=$PATH:`dirname $0` rofi \
     -show $show \
     -show-icons \
-    -modi combi,window,drun,ssh,vimwiki:rofi-vimwiki \
-    -combi-modi media:rofi-mediaplayers,window,drun,vim:rofi-vim,vimwiki:rofi-vimwiki \
+    -modi combi,vimwiki:rofi-vimwiki,ssh \
+    -combi-modi media:rofi-mediaplayers,window,drun,vim:rofi-vim \
     -sidebar-mode \
     -matching fuzzy \
     -hide-scrollbar true
+    # -modi combi,window,drun,ssh,vimwiki:rofi-vimwiki \
+    # -combi-modi media:rofi-mediaplayers,window,drun,vim:rofi-vim,vimwiki:rofi-vimwiki \

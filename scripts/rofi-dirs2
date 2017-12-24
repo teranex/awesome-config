@@ -1,7 +1,8 @@
 #!/bin/bash
 
 function run_rofi {
-    rofi -dmenu -matching fuzzy -i \
+    rofi -dmenu -matching glob \
+         -i \
          -p "dir: " \
          -mesg "      <b>Enter</b>: terminal | <b>Alt-r</b>: Ranger | <b>Alt-t</b>: Thunar | <b>Alt-o</b>: files" \
          -kb-custom-1 "Alt-r" \

@@ -2,10 +2,13 @@
 
 if [ -z "$@" ]
 then
-    cat ~/bashmarks && find /home/jeroen/Projecten/ -maxdepth 3 -type d -not -path '*/\.*'
+    cat ~/bashmarks && \
+      find /home/jeroen/Projecten/ -maxdepth 3 -type d -not -path '*/\.*' && \
+      find /home/jeroen/Customers/ -maxdepth 3 -type d -not -path '*/\.*'
 else
     # coproc Thunar "$@"
-    coproc terminator -e "export TERM='xterm-256color'; ranger '$@'"
+    # coproc terminator -e "export TERM='xterm-256color'; ranger '$@'"
+    coproc terminator -e "export TERM='xterm-256color'; cd \"$@\"; exec zsh"
     # coproc terminator -e "export TERM='xterm-256color'; cd '$@' && ~/src/texas/texas.zsh"
 fi
 
