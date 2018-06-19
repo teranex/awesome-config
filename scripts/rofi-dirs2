@@ -16,8 +16,8 @@ function run_rofi_files {
 
 function dir_drilldown_files {
     # cd to it so we only show the paths inside the dir, not the full paths
-    if [ -x /opt/fd/fd ]; then
-        cd "$1" && /opt/fd/fd -tf
+    if hash fd 2>/dev/null; then
+        cd "$1" && fd -tf
     else
         cd "$1" && find -type f 2>&1 | grep -v "Permission denied"
     fi
