@@ -13,6 +13,7 @@ end
 theme                               = {}
 
 theme.notification_shape            = rounded_shape
+theme.notification_margin           = 10
 
 theme.icon_dir                      = os.getenv("HOME") .. "/.config/awesome/themes/holo/icons"
 theme.layouts_dir                   = os.getenv("HOME") .. "/.config/awesome/themes/holo/layouts"
@@ -33,7 +34,7 @@ theme.bg_urgent                     = "#2A1F1E"
 -- theme.fg_minimize                   = "#688696"
 theme.bg_minimize                   = "#0099cc"
 theme.fg_minimize                   = theme.fg_normal
-theme.useless_gap                   = 3
+theme.useless_gap                   = 7
 theme.border_width                  = 2
 -- theme.border_normal                 = "#252525"
 -- theme.border_normal                 = "#CECECE"
