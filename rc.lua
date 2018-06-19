@@ -668,7 +668,7 @@ awful.rules.rules = {
 
       { rule = { class = "banshee" },
          properties = { tag = tags["="] } },
-      { rule = { class = "Spotify" },
+      { rule = { class = "[Ss]potify" },
          properties = { tag = tags["="] } },
 
       { rule = { class = "Shutter" },
