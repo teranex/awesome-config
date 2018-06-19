@@ -196,6 +196,7 @@ cpuwidget:set_color(theme.fg_focus)
 -- Register widget
 vicious.register(cpuwidget, vicious.widgets.cpu, "$1", 1)
 cpuwidget_mirrored = wibox.container.mirror(cpuwidget, { horizontal = true })
+systray_container = wibox.container.margin(wibox.widget.systray(), 4, 4, 4, 4)
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = awful.util.table.join(
@@ -303,7 +304,7 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             -- mykeyboardlayout,
-            wibox.widget.systray(),
+            systray_container,
             cpuwidget_mirrored,
             mytextclock,
             s.mylayoutbox,
