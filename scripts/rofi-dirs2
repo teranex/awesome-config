@@ -3,8 +3,8 @@
 function run_rofi {
     rofi -dmenu -matching glob \
          -i \
-         -p "dir: " \
-         -mesg "      <b>Enter</b>: terminal | <b>Alt-r</b>: Ranger | <b>Alt-t</b>: Thunar | <b>Alt-o</b>: files" \
+         -p "dir" \
+         -mesg "  <b>Enter</b>: terminal | <b>Alt-r</b>: Ranger | <b>Alt-t</b>: Thunar | <b>Alt-o</b>: files" \
          -kb-custom-1 "Alt-r" \
          -kb-custom-2 "Alt-t" \
          -kb-custom-3 "Alt-o"
