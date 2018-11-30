@@ -656,12 +656,13 @@ awful.rules.rules = {
       { rule = { class = "Firefox", instance = "Navigator" },
          properties = { tag = tags["2"] } },
       -- Min Vid window
-      { rule = { class = "Firefox", instance = "Toplevel" },
+      -- { rule = { class = "Firefox", instance = "Toplevel" },
+      { rule = { class = "mpv" },
         properties = { floating = true,
                        sticky = true,
                        ontop = true,
-                       width = 700,
-                       height = 394, -- 16:9 format
+                       -- width = 700,
+                       -- height = 394, -- 16:9 format
                        placement = awful.placement.bottom_right } },
 
       { rule = { class = "Pidgin" },
