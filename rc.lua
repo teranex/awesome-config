@@ -196,7 +196,12 @@ cpuwidget:set_color(theme.fg_focus)
 -- Register widget
 vicious.register(cpuwidget, vicious.widgets.cpu, "$1", 1)
 cpuwidget_mirrored = wibox.container.mirror(cpuwidget, { horizontal = true })
-systray_container = wibox.container.margin(wibox.widget.systray(), 4, 4, 4, 4)
+systray = wibox.widget.systray()
+systray_container = wibox.container.margin(systray, 4, 4, 4, 4)
+
+local battery_widget = require("awesome-wm-widgets.batteryarc-widget.batteryarc")
+local battery_widget_wrap = wibox.container.margin(battery_widget, 5, 2, 2, 2)
+local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = awful.util.table.join(
@@ -271,6 +276,9 @@ awful.screen.connect_for_each_screen(function(s)
       sharedtags.movetag(tags["="], s)
    end
 
+   s.systray = systray
+   s.systray.visible = false -- start hidden
+
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
     -- Create an imagebox widget which will contains an icon indicating which layout we're using.
@@ -305,11 +313,26 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             -- mykeyboardlayout,
             systray_container,
-            cpuwidget_mirrored,
-            mytextclock,
+            {
+               layout = awful.widget.only_on_screen,
+               screen = "primary", -- Only display on primary screen
+               cpu_widget,
+            },
+            {
+               layout = awful.widget.only_on_screen,
+               screen = "primary", -- Only display on primary screen
+               battery_widget_wrap,
+            },
+            -- cpuwidget_mirrored,
+            {
+               layout = awful.widget.only_on_screen,
+               screen = "primary", -- Only display on primary screen
+               mytextclock,
+            },
             s.mylayoutbox,
         },
     }
+    -- s.mywibox.visible = false
 end)
 -- }}}
 
@@ -360,6 +383,18 @@ globalkeys = awful.util.table.join(
             if client.focus then client.focus:raise() end
         end,
         {description = "focus previous by index", group = "client"}
+    ),
+    awful.key({ modkey }, "Delete",
+        function ()
+            awful.screen.focused().systray.visible = not awful.screen.focused().systray.visible
+        end,
+        {description = "Toggle systray visibility", group = "custom"}
+    ),
+    awful.key({ modkey, "Shift" }, "Delete",
+        function ()
+            awful.screen.focused().mywibox.visible = not awful.screen.focused().mywibox.visible
+        end,
+        {description = "Toggle wibar visibility", group = "custom"}
     ),
     -- awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
     --           {description = "show main menu", group = "awesome"}),
