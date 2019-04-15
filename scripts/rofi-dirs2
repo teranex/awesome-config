@@ -24,13 +24,20 @@ function dir_drilldown_files {
 }
 
 function dir_drilldown {
-    drill_result=$( dir_drilldown_files "$1" | run_rofi_files )
-    drill_exit="$?"
-
-    if [ "$drill_exit" -eq 0 ]
-    then
-        coproc xdg-open "$1/$drill_result"
-    fi
+    rofi -show file-browser \
+         -modi file-browser \
+         -file-browser-theme elementary-xfce-dark \
+         -columns 2 \
+         -show-icons \
+         -matching fuzzy \
+         -file-browser-dir "$1"
+    # drill_result=$( dir_drilldown_files "$1" | run_rofi_files )
+    # drill_exit="$?"
+    #
+    # if [ "$drill_exit" -eq 0 ]
+    # then
+    #     coproc xdg-open "$1/$drill_result"
+    # fi
 }
 
 result=$( ~/scripts/list-my-dirs.sh | run_rofi )
