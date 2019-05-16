@@ -277,7 +277,7 @@ awful.screen.connect_for_each_screen(function(s)
    end
 
    s.systray = systray
-   s.systray.visible = false -- start hidden
+   -- s.systray.visible = false -- start hidden
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
