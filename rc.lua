@@ -15,7 +15,7 @@ local lain = require("lain")
 
 local sharedtags = require("sharedtags")
 
-local vicious = require("vicious")
+-- local vicious = require("vicious")
 
 -- Load Debian menu entries
 -- require("debian.menu")
@@ -194,8 +194,8 @@ cpuwidget:set_width(50)
 cpuwidget:set_background_color(theme.bg_normal)
 cpuwidget:set_color(theme.fg_focus)
 -- Register widget
-vicious.register(cpuwidget, vicious.widgets.cpu, "$1", 1)
-cpuwidget_mirrored = wibox.container.mirror(cpuwidget, { horizontal = true })
+-- vicious.register(cpuwidget, vicious.widgets.cpu, "$1", 1)
+-- cpuwidget_mirrored = wibox.container.mirror(cpuwidget, { horizontal = true })
 systray = wibox.widget.systray()
 systray_container = wibox.container.margin(systray, 4, 4, 4, 4)
 
