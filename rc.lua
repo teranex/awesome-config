@@ -688,8 +688,8 @@ awful.rules.rules = {
          properties = {}, callback = awful.client.setslave },
 
       -- Firefox, but only browser windows (Navigator), no dialogs etc
-      { rule = { class = "Firefox", instance = "Navigator" },
-         properties = { tag = tags["2"] } },
+      -- { rule = { class = "Firefox", instance = "Navigator" },
+         -- properties = { tag = tags["2"] } },
       -- Min Vid window
       -- { rule = { class = "Firefox", instance = "Toplevel" },
       { rule = { class = "mpv" },
