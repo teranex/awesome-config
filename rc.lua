@@ -98,7 +98,7 @@ awful.layout.layouts = {
     awful.layout.suit.tile,
     -- lain.layout.cascade.tile,
     -- awful.layout.suit.tile.left,
-    -- awful.layout.suit.tile.bottom,
+    awful.layout.suit.tile.bottom,
     -- awful.layout.suit.tile.top,
     awful.layout.suit.fair,
     awful.layout.suit.fair.horizontal,
@@ -113,8 +113,8 @@ awful.layout.layouts = {
     awful.layout.suit.max,
 }
 
-lain.layout.cascade.tile.offset_x      = 0
-lain.layout.cascade.tile.ncol          = 2
+-- lain.layout.cascade.tile.offset_x      = 0
+-- lain.layout.cascade.tile.ncol          = 2
 
 local default_layout = awful.layout.suit.tile
 local wibox_height = 22
