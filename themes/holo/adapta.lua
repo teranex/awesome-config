@@ -88,10 +88,11 @@ theme.net_up                        = theme.icon_dir .. "/net_up.png"
 theme.net_down                      = theme.icon_dir .. "/net_down.png"
 theme.widget_mail_notify            = theme.icon_dir .. "/mail_notify.png"
 
-theme.widget_main_color = "#4db6ac"
+-- theme.widget_main_color = "#4db6ac"
+theme.widget_main_color = "#ffffff"
 theme.widget_red = "#e53935"
 theme.widget_yellow = "#c0ca33"
-theme.widget_green = "#43a047"
+theme.widget_green = "#4db6ac"
 theme.widget_black = "#000000"
 theme.widget_transparent = "#00000000"
 
