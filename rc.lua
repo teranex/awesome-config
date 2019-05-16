@@ -488,12 +488,12 @@ globalkeys = awful.util.table.join(
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"}),
+              {description = "show the menubar", group = "launcher"})
 
     -- if I can't fix my muscle-memory, let's fix it with a shortcut:
     -- make <modkey>+volumeUp/Down also work (next to fn+volUp/Down on Logitech K810)
-    awful.key({ modkey            }, "F9",    function () awful.spawn( "amixer set Master 2.5%-" ) end ),
-    awful.key({ modkey            }, "F10",    function () awful.spawn( "amixer set Master 2.5%+" ) end )
+    -- awful.key({ modkey            }, "F9",    function () awful.spawn( "amixer set Master 2.5%-" ) end ),
+    -- awful.key({ modkey            }, "F10",    function () awful.spawn( "amixer set Master 2.5%+" ) end )
 )
 
 clientkeys = awful.util.table.join(
