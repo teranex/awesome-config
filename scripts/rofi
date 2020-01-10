@@ -7,17 +7,28 @@ else
     show=$1
 fi
 
-PATH=$PATH:`dirname $0` rofi \
+PATH=$PATH:`dirname $0`
+# echo $PATH
+
+# PATH=$PATH:`dirname $0`
+cat ~/bashmarks | rofi \
     -show $show \
     -show-icons \
     -modi combi,calc,file-browser \
-    -combi-modi media:rofi-mediaplayers,window,drun,hamster:rofi-hamster,vimwiki:rofi-vimwiki,vim:rofi-vim \
+    -combi-modi window,drun,vimwiki:rofi-vimwiki,vim:rofi-vim,hamster:rofi-hamster \
     -matching fuzzy \
     -hide-scrollbar true \
     -columns 2 \
     -show-icons \
     -file-browser-theme elementary-xfce-dark \
-    -file-browser-disable-mode-keys
+    -file-browser-disable-mode-keys \
+    -file-browser-depth 3 \
+    -file-browser-stdin \
+    -file-browser-oc-cmd "thunar;icon:system-file-manager;name:Thunar" \
+    -file-browser-oc-cmd "/home/jeroen/.config/awesome/scripts/ranger;icon:terminal;name:Ranger" \
+    -file-browser-oc-cmd "/home/jeroen/.config/awesome/scripts/terminator;icon:terminator;name:Terminator" \
+    # -combi-modi window,drun,hamster:rofi-hamster,vimwiki:rofi-vimwiki,vim:rofi-vim \
+    # -combi-modi media:rofi-mediaplayers,window,drun,hamster:rofi-hamster,vimwiki:rofi-vimwiki,vim:rofi-vim \
     # -sidebar-mode \
     # -modi combi,vimwiki:rofi-vimwiki,ssh \
     # -modi combi,window,drun,ssh,vimwiki:rofi-vimwiki \
