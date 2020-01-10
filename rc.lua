@@ -392,7 +392,11 @@ globalkeys = awful.util.table.join(
     ),
     awful.key({ modkey, "Shift" }, "Delete",
         function ()
-            awful.screen.focused().mywibox.visible = not awful.screen.focused().mywibox.visible
+            naughty.toggle()
+            -- for s in awful.screen.screen() do
+            for s in screen do
+               s.mywibox.visible = not s.mywibox.visible
+            end
         end,
         {description = "Toggle wibar visibility", group = "custom"}
     ),
