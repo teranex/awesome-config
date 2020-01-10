@@ -4,5 +4,5 @@ if [ -z "$@" ]
 then
     hamster-cli list-activities
 else
-    coproc hamster-cli start $@
+    coproc hamster-cli start $@ && sleep 0.1 && hamsterlist=$(hamster-cli list) && notify-send "hamster" "$hamsterlist" --icon=hamster-applet
 fi
