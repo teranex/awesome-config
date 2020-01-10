@@ -1,0 +1,3 @@
+#!/bin/bash
+
+terminator --working-directory="$1" -e ranger
