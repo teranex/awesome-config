@@ -85,7 +85,7 @@ modkey = "Mod4"
 
 -- set the modkey to alt when running on 'peppy', my chromebook which runs GalliumOS
 hostname = io.popen("uname -n"):read()
-if hostname == "peppy" then
+if hostname == "chromebook" then
    modkey = "Mod1"
    -- also set the terminal as terminator has some drawing issues
    -- on peppy with awesome 4.0
