@@ -2,12 +2,15 @@
 
 if [ -z "$@" ]
 then
+    echo NEW_NOTE
     echo TODAY
     echo REVIEW
     cd ~/vimwiki/ && find -type f -name \*.md -not -path "./.archive/*" | cut -c3-
 else
     if [[ "$@" == "TODAY" ]]; then
         coproc gvim "/home/jeroen/vimwiki/diary/`date +%Y-%m-%d`.md"
+    elif [[ "$@" == "NEW_NOTE" ]]; then
+        coproc gvim "+cd /home/jeroen/vimwiki" "+NewNote"
     elif [[ "$@" == "REVIEW" ]]; then
         coproc gvim "+cd /home/jeroen/vimwiki" "+Rg :REVIEW:" "/home/jeroen/vimwiki/diary/`date +%Y-%m-%d`.md"
     else
