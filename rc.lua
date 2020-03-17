@@ -14,6 +14,7 @@ local hotkeys_popup = require("awful.hotkeys_popup").widget
 local lain = require("lain")
 
 local sharedtags = require("sharedtags")
+local thrizen = require("thrizen")
 
 -- local vicious = require("vicious")
 
@@ -111,6 +112,7 @@ awful.layout.layouts = {
     -- awful.layout.suit.corner.se,
     awful.layout.suit.corner.nw,
     awful.layout.suit.max,
+    thrizen,
 }
 
 -- lain.layout.cascade.tile.offset_x      = 0

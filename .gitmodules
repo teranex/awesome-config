@@ -16,3 +16,6 @@
 [submodule "awesome-wm-widgets"]
 	path = awesome-wm-widgets
 	url = https://github.com/streetturtle/awesome-wm-widgets.git
+[submodule "thrizen"]
+	path = thrizen
+	url = https://github.com/ciiqr/thrizen.git
