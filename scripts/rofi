@@ -27,6 +27,7 @@ cat ~/bashmarks | rofi \
     -file-browser-oc-cmd "/home/jeroen/.config/awesome/scripts/ranger;icon:terminal;name:Ranger" \
     -file-browser-oc-cmd "thunar;icon:system-file-manager;name:Thunar" \
     -file-browser-oc-cmd "/home/jeroen/.config/awesome/scripts/terminator;icon:terminator;name:Terminator" \
+    -file-browser-oc-cmd "gvim;icon:gvim;name:Gvim" \
     # -combi-modi window,drun,hamster:rofi-hamster,vimwiki:rofi-vimwiki,vim:rofi-vim \
     # -combi-modi media:rofi-mediaplayers,window,drun,hamster:rofi-hamster,vimwiki:rofi-vimwiki,vim:rofi-vim \
     # -sidebar-mode \
