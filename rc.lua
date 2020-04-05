@@ -686,7 +686,7 @@ awful.rules.rules = {
 
       -- Jitsi Meet small PIP-window
       { rule = { class = "Jitsi Meet", width = 320 },
-         properties = { focusable = false, sticky = true, ontop = true, placement = awful.placement.bottom } },
+         properties = { focusable = false, sticky = true, ontop = true, placement = awful.placement.bottom_right } },
 
       -- Remember the Milk Smart Add
       { rule = { class = "Remember The Milk", name = "Remember The Milk - Global Smart Add" },
@@ -742,7 +742,7 @@ awful.rules.rules = {
                         maximized_horizontal = true,
                         border_width = 0,
                         opacity = 0.85,
-                        height = 920, 
+                        height = 920,
                         y = 21 }
       },
 
