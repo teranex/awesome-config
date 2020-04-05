@@ -670,7 +670,7 @@ awful.rules.rules = {
       { rule = { class = "Thunderbird", instance = "Msgcompose" },
          properties = {}, callback = awful.client.setslave },
       { rule = { class = "Thunderbird", instance = "Calendar" },
-         properties = { sticky = true, ontop = true, placement = awful.placement.bottom_right }, callback = awful.client.setslave },
+         properties = { sticky = true, ontop = true, placement = awful.placement.bottom_right, focusable = false }, callback = awful.client.setslave },
       { rule = { class = "Thunderbird", instance = "Dialog" },
          properties = { placement = awful.placement.centered } },
 
