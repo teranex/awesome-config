@@ -15,7 +15,7 @@ cat ~/bashmarks | rofi \
     -show $show \
     -show-icons \
     -modi combi,calc,file-browser \
-    -combi-modi window,drun,vimwiki:rofi-vimwiki,vim:rofi-vim,hamster:rofi-hamster \
+    -combi-modi window,drun,vimwiki:rofi-vimwiki,hamster:rofi-hamster \
     -matching fuzzy \
     -hide-scrollbar true \
     -columns 2 \
