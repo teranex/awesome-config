@@ -159,6 +159,7 @@ theme.layout_cornerne = theme.layouts_dir .. "/cornernew.png"
 theme.layout_cornersw = theme.layouts_dir .. "/cornersww.png"
 theme.layout_cornerse = theme.layouts_dir .. "/cornersew.png"
 theme.layout_cascadetile = theme.layouts_dir .. "/cascade.png"
+theme.layout_thrizen = theme.layouts_dir .. "/thrizen.png"
 
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
