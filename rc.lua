@@ -494,7 +494,20 @@ globalkeys = awful.util.table.join(
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+              {description = "show the menubar", group = "launcher"}),
+
+    awful.key({ modkey }, "a",
+              function ()
+                  awful.spawn("hamster add",{
+                      floating  = true,
+                      tag       = mouse.screen.selected_tag,
+                      placement = awful.placement.centered,
+                  })
+              end,
+              {description = "Open Hamster add window", group = "launcher"}),
+
+    awful.key({ modkey }, "w", function () awful.spawn( awful.util.getdir("config") .. "/scripts/vimwiki" ) end,
+              {description = "Launch Vimwiki", group = "launcher"})
 
     -- if I can't fix my muscle-memory, let's fix it with a shortcut:
     -- make <modkey>+volumeUp/Down also work (next to fn+volUp/Down on Logitech K810)
@@ -674,7 +687,7 @@ awful.rules.rules = {
       { rule = { class = "Thunderbird", instance = "Dialog" },
          properties = { placement = awful.placement.centered } },
 
-      { rule = { class = "Hamster-indicator" },
+      { rule = { class = "Hamster" },
          properties = {}, callback = awful.client.setslave },
 
       -- GPG Passphrase dialog
