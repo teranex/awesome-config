@@ -23,11 +23,14 @@ cat ~/bashmarks | rofi \
     -file-browser-theme elementary-xfce-dark \
     -file-browser-disable-mode-keys \
     -file-browser-depth 3 \
-    -file-browser-stdin \
     -file-browser-oc-cmd "/home/jeroen/.config/awesome/scripts/ranger;icon:terminal;name:Ranger" \
     -file-browser-oc-cmd "thunar;icon:system-file-manager;name:Thunar" \
     -file-browser-oc-cmd "/home/jeroen/.config/awesome/scripts/terminator;icon:terminator;name:Terminator" \
     -file-browser-oc-cmd "gvim;icon:gvim;name:Gvim" \
+    -file-browser-dir / \
+    # -file-browser-oc-search-path
+    # -file-browser-stdin \
+
     # -combi-modi window,drun,hamster:rofi-hamster,vimwiki:rofi-vimwiki,vim:rofi-vim \
     # -combi-modi media:rofi-mediaplayers,window,drun,hamster:rofi-hamster,vimwiki:rofi-vimwiki,vim:rofi-vim \
     # -sidebar-mode \
