@@ -168,11 +168,12 @@ theme.icon_theme = nil
 
 -- GPD Pocet specific
 local hostname = io.popen("uname -n"):read()
-if hostname == "GPDPocket" then
+if hostname == "GPDPocket" or hostname == "alondra" then
     theme.font          = "Cantarell 20"
     theme.taglist_bg_focus              = "png:" .. theme.icon_dir .. "/taglist_bg_focus_32px.png"
     theme.taglist_squares_sel           = theme.icon_dir .. "/square_sel_hidpi.png"
     theme.taglist_squares_unsel         = theme.icon_dir .. "/square_unsel_hidpi.png"
+    theme.border_width                  = 3
 end
 
 return theme

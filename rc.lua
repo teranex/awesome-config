@@ -120,8 +120,8 @@ awful.layout.layouts = {
 
 local default_layout = awful.layout.suit.tile
 local wibox_height = 22
-if hostname == "GPDPocket" then
-   default_layout = awful.layout.suit.max
+if hostname == "GPDPocket" or hostname == "alondra" then
+   -- default_layout = awful.layout.suit.max
    wibox_height = 32
 end
 

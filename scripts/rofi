@@ -8,7 +8,14 @@ else
 fi
 
 PATH=$PATH:`dirname $0`
-# echo $PATH
+
+ROFI_FONT="hack 12"
+
+case $(hostname -s) in
+    alondra)
+        ROFI_FONT="hack 20"
+        ;;
+esac
 
 # PATH=$PATH:`dirname $0`
 cat ~/bashmarks | rofi \
@@ -28,6 +35,7 @@ cat ~/bashmarks | rofi \
     -file-browser-oc-cmd "/home/jeroen/.config/awesome/scripts/terminator;icon:terminator;name:Terminator" \
     -file-browser-oc-cmd "gvim;icon:gvim;name:Gvim" \
     -file-browser-dir / \
+    -font "$ROFI_FONT"
     # -file-browser-oc-search-path
     # -file-browser-stdin \
 
