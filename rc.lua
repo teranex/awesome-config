@@ -762,8 +762,20 @@ awful.rules.rules = {
       { rule = { class = "Xfce4-notifyd" },
          properties = { focus = false,
                         raise = false,
-                        border_width = 0 } }
-
+                        border_width = 0 } },
+-- Desktop {{{
+    {
+        rule_any = { type = { "desktop" } },
+        callback = function(c)
+            c.screen = awful.screen.getbycoord(0, 0)
+            end,
+        properties = {
+            sticky = true,
+            border_width = 0,
+            skip_taskbar = true,
+            keys = {},
+        }
+    } -- }}}
     -- Add titlebars to normal clients and dialogs
     -- { rule_any = {type = { "normal", "dialog" }
     --   }, properties = { titlebars_enabled = true }
