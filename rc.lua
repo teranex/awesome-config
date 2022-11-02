@@ -202,7 +202,8 @@ systray = wibox.widget.systray()
 systray_container = wibox.container.margin(systray, 4, 4, 4, 4)
 
 local battery_widget = require("awesome-wm-widgets.batteryarc-widget.batteryarc")
-local battery_widget_wrap = wibox.container.margin(battery_widget, 5, 2, 2, 2)
+-- battery_widget.enable_battery_warning = false
+-- local battery_widget_wrap = wibox.container.margin(battery_widget({ show_current_level = true }), 5, 2, 2, 2)
 local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 
 -- Create a wibox for each screen and add it
@@ -323,7 +324,11 @@ awful.screen.connect_for_each_screen(function(s)
             {
                layout = awful.widget.only_on_screen,
                screen = "primary", -- Only display on primary screen
-               battery_widget_wrap,
+               -- battery_widget_wrap,
+               battery_widget({
+                   show_current_level = false,
+                   size = 17,
+               }),
             },
             -- cpuwidget_mirrored,
             {
