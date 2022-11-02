@@ -717,7 +717,7 @@ awful.rules.rules = {
       { rule = { class = "Firefox", instance = "Navigator" },
          properties = { floating = false }},
 
-      { rule = { class = "Firefox", instance = "Toolkit" },
+      { rule = { class = "firefox-beta", role = "PictureInPicture" }, -- instance = "Toolkit" },
          properties = { floating = true, sticky = true, ontop = true, placement = awful.placement.bottom_right }},
 
       -- Firefox, but only browser windows (Navigator), no dialogs etc
