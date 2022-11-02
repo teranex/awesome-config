@@ -205,6 +205,7 @@ local battery_widget = require("awesome-wm-widgets.batteryarc-widget.batteryarc"
 -- battery_widget.enable_battery_warning = false
 -- local battery_widget_wrap = wibox.container.margin(battery_widget({ show_current_level = true }), 5, 2, 2, 2)
 local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
+local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = awful.util.table.join(
@@ -319,7 +320,10 @@ awful.screen.connect_for_each_screen(function(s)
             {
                layout = awful.widget.only_on_screen,
                screen = "primary", -- Only display on primary screen
-               cpu_widget,
+               volume_widget({
+                   widget_type = 'arc',
+                   size = 17,
+               }),
             },
             {
                layout = awful.widget.only_on_screen,
@@ -362,7 +366,10 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
 
-
+    -- volume keys
+    awful.key({ }, "XF86AudioRaiseVolume", function() volume_widget:inc(5) end),
+    awful.key({ }, "XF86AudioLowerVolume", function() volume_widget:dec(5) end),
+    awful.key({ }, "XF86AudioMute", function() volume_widget:toggle() end),
 
     -- launch rofi when pressing mod1+space to launch anything
     awful.key({ modkey            }, "space",
