@@ -682,6 +682,8 @@ awful.rules.rules = {
          properties = { tag = tags["1"] } },
       { rule = { class = "Ferdi" },
          properties = { tag = tags["-"] } },
+      { rule = { class = "ticktick" },
+         properties = { tag = tags["0"] } },
       { rule = { class = "Thunderbird", instance = "Msgcompose" },
          properties = {}, callback = awful.client.setslave },
       { rule = { class = "Thunderbird", instance = "Calendar" },
