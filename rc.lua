@@ -334,6 +334,11 @@ awful.screen.connect_for_each_screen(function(s)
                    size = 17,
                }),
             },
+            {
+               layout = awful.widget.only_on_screen,
+               screen = "primary", -- Only display on primary screen
+               cpu_widget(),
+            },
             -- cpuwidget_mirrored,
             {
                layout = awful.widget.only_on_screen,
