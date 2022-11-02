@@ -680,6 +680,8 @@ awful.rules.rules = {
 
       { rule = { class = "Thunderbird", instance = "Mail" },
          properties = { tag = tags["1"] } },
+      { rule = { class = "Ferdi" },
+         properties = { tag = tags["-"] } },
       { rule = { class = "Thunderbird", instance = "Msgcompose" },
          properties = {}, callback = awful.client.setslave },
       { rule = { class = "Thunderbird", instance = "Calendar" },
