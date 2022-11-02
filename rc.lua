@@ -127,16 +127,16 @@ end
 
 local tags = sharedtags({
     { name = "1", layout = default_layout },
-    { name = "2", layout = awful.layout.suit.max },
+    { name = "2", layout = default_layout },
     { name = "3", layout = default_layout },
     { name = "4", layout = default_layout },
     { name = "5", layout = default_layout },
     { name = "6", layout = default_layout },
     { name = "7", layout = default_layout },
-    { name = "8", layout = default_layout },
-    { name = "9", layout = default_layout },
+    { name = "8", layout = awful.layout.suit.max, screen = 1},
+    { name = "9", layout = default_layout, screen = 1 },
     { name = "0", layout = default_layout, screen = 1 },
-    { name = "-", layout = thrizen, screen = 1 }, -- messaging, use corner layout
+    { name = "-", layout = default_layout, screen = 1 }, -- messaging, use corner layout
     { name = "=", layout = awful.layout.suit.max, screen = 1 }
 })
 for tag_id,tag in pairs(tags) do
