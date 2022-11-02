@@ -190,11 +190,11 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 mytextclock = wibox.widget.textclock(" %a %b %d, %H:%M ", 1)
 
 -- Initialize widget
-cpuwidget = wibox.widget.graph()
--- Graph properties
-cpuwidget:set_width(50)
-cpuwidget:set_background_color(theme.bg_normal)
-cpuwidget:set_color(theme.fg_focus)
+-- cpuwidget = wibox.widget.graph()
+-- -- Graph properties
+-- cpuwidget:set_width(50)
+-- cpuwidget:set_background_color(theme.bg_normal)
+-- cpuwidget:set_color(theme.fg_focus)
 -- Register widget
 -- vicious.register(cpuwidget, vicious.widgets.cpu, "$1", 1)
 -- cpuwidget_mirrored = wibox.container.mirror(cpuwidget, { horizontal = true })
