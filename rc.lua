@@ -16,8 +16,6 @@ local lain = require("lain")
 local sharedtags = require("sharedtags")
 local thrizen = require("thrizen")
 
--- local vicious = require("vicious")
-
 -- Load Debian menu entries
 -- require("debian.menu")
 
@@ -69,7 +67,6 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
--- beautiful.init(awful.util.get_themes_dir() .. "zenburn/theme.lua")
 beautiful.init(awful.util.getdir("config") .. "/themes/holo/arkham.lua")
 
 -- This is used later as the default terminal and editor to run.
@@ -115,13 +112,9 @@ awful.layout.layouts = {
     thrizen,
 }
 
--- lain.layout.cascade.tile.offset_x      = 0
--- lain.layout.cascade.tile.ncol          = 2
-
 local default_layout = awful.layout.suit.tile
 local wibox_height = 22
 if hostname == "GPDPocket" or hostname == "alondra" then
-   -- default_layout = awful.layout.suit.max
    wibox_height = 32
 end
 
@@ -144,66 +137,18 @@ for tag_id,tag in pairs(tags) do
 end
 -- }}}
 
--- {{{ Helper functions
--- local function client_menu_toggle_fn()
---     local instance = nil
---
---     return function ()
---         if instance and instance.wibox.visible then
---             instance:hide()
---             instance = nil
---         else
---             instance = awful.menu.clients({ theme = { width = 250 } })
---         end
---     end
--- end
--- }}}
-
 -- {{{ Menu
--- Create a launcher widget and a main menu
--- myawesomemenu = {
---    { "hotkeys", function() return false, hotkeys_popup.show_help end},
---    { "manual", terminal .. " -e man awesome" },
---    { "edit config", editor_cmd .. " " .. awesome.conffile },
---    { "restart", awesome.restart },
---    { "quit", function() awesome.quit() end}
--- }
-
--- mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
---                                     { "Debian", debian.menu.Debian_menu.Debian },
---                                     { "open terminal", terminal }
---                                   }
---                         })
-
--- mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
---                                      menu = mymainmenu })
-
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 -- }}}
 
--- Keyboard map indicator and switcher
--- mykeyboardlayout = awful.widget.keyboardlayout()
-
 -- {{{ Wibar
--- Create a textclock widget
 mytextclock = wibox.widget.textclock(" %a %b %d, %H:%M ", 1)
 
--- Initialize widget
--- cpuwidget = wibox.widget.graph()
--- -- Graph properties
--- cpuwidget:set_width(50)
--- cpuwidget:set_background_color(theme.bg_normal)
--- cpuwidget:set_color(theme.fg_focus)
--- Register widget
--- vicious.register(cpuwidget, vicious.widgets.cpu, "$1", 1)
--- cpuwidget_mirrored = wibox.container.mirror(cpuwidget, { horizontal = true })
 systray = wibox.widget.systray()
 systray_container = wibox.container.margin(systray, 4, 4, 4, 4)
 
 local battery_widget = require("awesome-wm-widgets.batteryarc-widget.batteryarc")
--- battery_widget.enable_battery_warning = false
--- local battery_widget_wrap = wibox.container.margin(battery_widget({ show_current_level = true }), 5, 2, 2, 2)
 local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
 
@@ -243,13 +188,6 @@ local tasklist_buttons = awful.util.table.join(
                                               end
                                           end),
                      awful.button({ }, 2, function (c) c:kill() end))
-                     -- awful.button({ }, 3, client_menu_toggle_fn()),
-                     -- awful.button({ }, 4, function ()
-                     --                          awful.client.focus.byidx(1)
-                     --                      end),
-                     -- awful.button({ }, 5, function ()
-                     --                          awful.client.focus.byidx(-1)
-                     --                      end))
 
 local function set_wallpaper(s)
     awful.spawn( awful.util.getdir("config") .. "/scripts/wallpaper.sh" )
@@ -271,10 +209,7 @@ awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
     set_wallpaper(s)
 
-    -- Each screen has its own tag table.
-    -- awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
-    -- Assign tags to the newly connected screen here,
-    -- if desired:
+    -- Assign tags to the newly connected screen here, if desired:
     if s ~= screen.primary then
       sharedtags.movetag(tags["0"], s)
       sharedtags.movetag(tags["-"], s)
@@ -282,7 +217,6 @@ awful.screen.connect_for_each_screen(function(s)
    end
 
    s.systray = systray
-   -- s.systray.visible = false -- start hidden
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -304,12 +238,10 @@ awful.screen.connect_for_each_screen(function(s)
     s.mywibox = awful.wibar({ position = "top", screen = s, height = wibox_height})
 
     -- Add widgets to the wibox
-    -- TODO: make a distinction between first and next screens
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            -- mylauncher,
             s.mytaglist,
             s.mypromptbox,
         },
@@ -317,7 +249,6 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             spacing = 7,
-            -- mykeyboardlayout,
             systray_container,
             {
                layout = awful.widget.only_on_screen,
@@ -330,7 +261,6 @@ awful.screen.connect_for_each_screen(function(s)
             {
                layout = awful.widget.only_on_screen,
                screen = "primary", -- Only display on primary screen
-               -- battery_widget_wrap,
                battery_widget({
                    show_current_level = false,
                    size = 17,
@@ -342,7 +272,6 @@ awful.screen.connect_for_each_screen(function(s)
                screen = "primary", -- Only display on primary screen
                cpu_widget(),
             },
-            -- cpuwidget_mirrored,
             {
                layout = awful.widget.only_on_screen,
                screen = "primary", -- Only display on primary screen
@@ -351,16 +280,7 @@ awful.screen.connect_for_each_screen(function(s)
             s.mylayoutbox,
         },
     }
-    -- s.mywibox.visible = false
 end)
--- }}}
-
--- {{{ Mouse bindings
--- root.buttons(awful.util.table.join(
---     awful.button({ }, 3, function () mymainmenu:toggle() end),
---     awful.button({ }, 4, awful.tag.viewnext),
---     awful.button({ }, 5, awful.tag.viewprev)
--- ))
 -- }}}
 
 -- {{{ Key bindings
@@ -415,15 +335,12 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift" }, "Delete",
         function ()
             naughty.toggle()
-            -- for s in awful.screen.screen() do
             for s in screen do
                s.mywibox.visible = not s.mywibox.visible
             end
         end,
         {description = "Toggle wibar visibility", group = "custom"}
     ),
-    -- awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
-    --           {description = "show main menu", group = "awesome"}),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
@@ -447,10 +364,6 @@ globalkeys = awful.util.table.join(
 
     -- Standard program
     awful.key({ modkey, "Shift"   }, "Return", function () awful.spawn(terminal) end,
-    -- awful.key({ modkey, "Shift"   }, "Return",
-    --           function ()
-    --                 awful.spawn( awful.util.getdir("config") .. "/scripts/rofi-dirs2" )
-    --           end,
               {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
@@ -528,11 +441,6 @@ globalkeys = awful.util.table.join(
 
     awful.key({ modkey }, "w", function () awful.spawn( awful.util.getdir("config") .. "/scripts/vimwiki" ) end,
               {description = "Launch Vimwiki", group = "launcher"})
-
-    -- if I can't fix my muscle-memory, let's fix it with a shortcut:
-    -- make <modkey>+volumeUp/Down also work (next to fn+volUp/Down on Logitech K810)
-    -- awful.key({ modkey            }, "F9",    function () awful.spawn( "amixer set Master 2.5%-" ) end ),
-    -- awful.key({ modkey            }, "F10",    function () awful.spawn( "amixer set Master 2.5%+" ) end )
 )
 
 clientkeys = awful.util.table.join(
@@ -618,14 +526,9 @@ for i = 1, 12 do
         awful.key({ modkey, "Shift" }, "#" .. i + 9,
                   function ()
                       if client.focus then
-                          -- local tag = client.focus.screen.tags[i]
                           local tag = tags[i]
                           if tag then
                               client.focus:move_to_tag(tag)
-                              -- also jump to the target tag if it is not visible on any screen
-                              -- if not tag.selected then
-                              --    sharedtags.viewonly(tag)
-                              -- end
                           end
                      end
                   end,
@@ -634,7 +537,6 @@ for i = 1, 12 do
         awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9,
                   function ()
                       if client.focus then
-                          -- local tag = client.focus.screen.tags[i]
                           local tag = tags[i]
                           if tag then
                               client.focus:toggle_tag(tag)
@@ -693,7 +595,6 @@ awful.rules.rules = {
         },
         role = {
           "AlarmWindow",  -- Thunderbird's calendar.
-          -- "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
         }
       }, properties = { floating = true }},
 
@@ -740,17 +641,10 @@ awful.rules.rules = {
       { rule = { class = "firefox-beta", role = "PictureInPicture" }, -- instance = "Toolkit" },
          properties = { floating = true, sticky = true, ontop = true, placement = awful.placement.bottom_right }},
 
-      -- Firefox, but only browser windows (Navigator), no dialogs etc
-      -- { rule = { class = "Firefox", instance = "Navigator" },
-         -- properties = { tag = tags["2"] } },
-      -- Min Vid window
-      -- { rule = { class = "Firefox", instance = "Toplevel" },
       { rule = { class = "mpv" },
         properties = { floating = true,
                        sticky = true,
                        ontop = true,
-                       -- width = 700,
-                       -- height = 394, -- 16:9 format
                        placement = awful.placement.bottom_right } },
 
       { rule = { class = "Pidgin" },
@@ -764,16 +658,6 @@ awful.rules.rules = {
       { rule = { class = "Shutter" },
          properties = { floating = true } },
 
-      -- { rule = { class = "Xfce4-terminal" },
-      --    properties = { floating = true } },
-      --
-      -- { rule = { class = "Gvim" },
-      --    properties = { size_hints_honor = true } },
-
-      -- { rule = { class = "Terminator", instance = "terminator" },
-      --    properties = { floating = false } },
-      -- Terminator is also started as a quake style terminal, bound to <F12>:
-      -- `terminator --hidden --borderless --geometry 1920x920+0+21 --classname="quake-terminator" &`
       { rule = { class = "Terminator", name = "quake-terminator" },
          properties = { floating = true,
                         maximized_horizontal = true,
@@ -800,14 +684,6 @@ awful.rules.rules = {
             keys = {},
         }
     } -- }}}
-    -- Add titlebars to normal clients and dialogs
-    -- { rule_any = {type = { "normal", "dialog" }
-    --   }, properties = { titlebars_enabled = true }
-    -- },
-
-    -- Set Firefox to always map on the tag named "2" on screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { screen = 1, tag = "2" } },
 }
 -- }}}
 
@@ -882,17 +758,3 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
--- client.connect_signal("focus", function (c)
---    c.shape = function(cr, width ,height)
---       -- gears.shape.rounded_rect(cr, width, height, 20)
---       gears.shape.partially_rounded_rect(cr, width, height, true, false, false, false, 25)
---    end
---    -- c.opacity = 1
--- end)
---
--- client.connect_signal("unfocus", function (c)
---    c.shape = function(cr, width ,height)
---       gears.shape.rounded_rect(cr, width, height, 5)
---    end
---    -- c.opacity = 0.8
--- end)
