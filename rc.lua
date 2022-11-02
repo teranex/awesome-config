@@ -333,6 +333,7 @@ awful.screen.connect_for_each_screen(function(s)
                battery_widget({
                    show_current_level = false,
                    size = 17,
+                   charging_color = '#ffffff',
                }),
             },
             {
