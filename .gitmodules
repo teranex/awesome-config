@@ -16,3 +16,6 @@
 [submodule "thrizen"]
 	path = thrizen
 	url = https://github.com/ciiqr/thrizen.git
+[submodule "bling"]
+	path = bling
+	url = https://github.com/BlingCorp/bling.git
