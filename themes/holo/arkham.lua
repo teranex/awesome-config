@@ -167,6 +167,9 @@ theme.layout_thrizen = theme.layouts_dir .. "/thrizen.png"
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 theme.icon_theme = nil
 
+theme.tabbar_size = 25
+theme.tabbar_bg_focus  = "#4a89c7"
+theme.tabbar_fg_focus  = "#ffffff"
 
 -- GPD Pocet specific
 local hostname = io.popen("uname -n"):read()

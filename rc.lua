@@ -14,7 +14,6 @@ local hotkeys_popup = require("awful.hotkeys_popup").widget
 local lain = require("lain")
 
 local sharedtags = require("sharedtags")
-local thrizen = require("thrizen")
 
 -- Load Debian menu entries
 -- require("debian.menu")
@@ -91,6 +90,8 @@ if hostname == "chromebook" then
 end
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
+local bling = require("bling")
+local thrizen = require("thrizen")
 awful.layout.layouts = {
     -- awful.layout.suit.floating,
     awful.layout.suit.tile,
@@ -110,6 +111,9 @@ awful.layout.layouts = {
     awful.layout.suit.corner.nw,
     awful.layout.suit.max,
     thrizen,
+    bling.layout.mstab,
+    bling.layout.equalarea,
+    bling.layout.deck,
 }
 
 local default_layout = awful.layout.suit.tile
@@ -353,14 +357,14 @@ globalkeys = awful.util.table.join(
               {description = "focus the previous screen", group = "screen"}),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
               {description = "jump to urgent client", group = "client"}),
-    awful.key({ modkey,           }, "Tab",
-        function ()
-            awful.client.focus.history.previous()
-            if client.focus then
-                client.focus:raise()
-            end
-        end,
-        {description = "go back", group = "client"}),
+    -- awful.key({ modkey,           }, "Tab",
+    --     function ()
+    --         awful.client.focus.history.previous()
+    --         if client.focus then
+    --             client.focus:raise()
+    --         end
+    --     end,
+    --     {description = "go back", group = "client"}),
 
     -- Standard program
     awful.key({ modkey, "Shift"   }, "Return", function () awful.spawn(terminal) end,
@@ -440,7 +444,16 @@ globalkeys = awful.util.table.join(
               {description = "Open Hamster add window", group = "launcher"}),
 
     awful.key({ modkey }, "w", function () awful.spawn( awful.util.getdir("config") .. "/scripts/vimwiki" ) end,
-              {description = "Launch Vimwiki", group = "launcher"})
+              {description = "Launch Vimwiki", group = "launcher"}),
+
+
+
+    awful.key({ modkey, "Shift"}, "t", function () bling.module.tabbed.pick_with_dmenu()                end,
+              {description = "Select client to add to tabgroup", group = "Tabbed"}),
+    awful.key({ modkey, "Shift"}, "r", function () bling.module.tabbed.pop()                end,
+              {description = "Remove client from tabgroup", group = "Tabbed"}),
+    awful.key({ modkey }, "Tab", function () bling.module.tabbed.iter()                end,
+              {description = "Switch to next client in tabgroup", group = "Tabbed"})
 )
 
 clientkeys = awful.util.table.join(
