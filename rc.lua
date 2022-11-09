@@ -259,15 +259,16 @@ awful.screen.connect_for_each_screen(function(s)
                screen = "primary", -- Only display on primary screen
                volume_widget({
                    widget_type = 'arc',
-                   size = 17,
+                   size = 18,
+                   mute_color = "#4C4745",
                }),
             },
             {
                layout = awful.widget.only_on_screen,
                screen = "primary", -- Only display on primary screen
                battery_widget({
-                   show_current_level = false,
-                   size = 17,
+                   show_current_level = true,
+                   size = 18,
                    charging_color = '#ffffff',
                }),
             },
