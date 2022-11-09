@@ -69,7 +69,7 @@ end
 beautiful.init(awful.util.getdir("config") .. "/themes/holo/arkham.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "terminator"
+terminal = os.getenv("HOME") .. "/.local/kitty.app/bin/kitty"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -288,6 +288,19 @@ awful.screen.connect_for_each_screen(function(s)
 end)
 -- }}}
 
+-- {{{ scratchpads
+local term_scratch = bling.module.scratchpad {
+    command = terminal .. " --class kitty-guake -o background_opacity=0.7",           -- How to spawn the scratchpad
+    rule = { instance = "kitty-guake" },                     -- The rule that the scratchpad will be searched by
+    sticky = true,                                    -- Whether the scratchpad should be sticky
+    autoclose = false,                                 -- Whether it should hide itself when losing focus
+    floating = true,                                  -- Whether it should be floating (MUST BE TRUE FOR ANIMATIONS)
+    geometry = {x=60, y=22, height=900, width=1800}, -- The geometry in a floating state
+    reapply = true,                                   -- Whether all those properties should be reapplied on every new opening of the scratchpad (MUST BE TRUE FOR ANIMATIONS)
+    dont_focus_before_close  = false,                 -- When set to true, the scratchpad will be closed by the toggle function regardless of whether its focused or not. When set to false, the toggle function will first bring the scratchpad into focus and only close it on a second call
+}
+-- }}}
+
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "/",      hotkeys_popup.show_help,
@@ -447,6 +460,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "w", function () awful.spawn( awful.util.getdir("config") .. "/scripts/vimwiki" ) end,
               {description = "Launch Vimwiki", group = "launcher"}),
 
+    awful.key({ }, "XF86Calculator", function () term_scratch:toggle() end,
+              {description = "Toggle terminal scratchpad", group = "launcher"}),
 
 
     awful.key({ modkey, "Shift"}, "t", function () bling.module.tabbed.pick_with_dmenu()                end,
