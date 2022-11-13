@@ -1,0 +1,26 @@
+rofi.fixed-num-lines: false
+rofi.opacity: 90
+rofi.scroll-method: 1
+rofi.separator-style: none
+# rofi.theme: /usr/local/share/rofi/themes/Adapta-Nokto.rasi
+#rofi.color-window: argb:E6303030, argb:E6303030
+rofi.scrollbar-width: 2
+
+# Adapta colors
+# rofi.color-window: argb:E629353b, argb:E629353b
+# #rofi.color-normal: argb:00303030, #ffffff, argb:00303030, #0099cc, #ffffff
+# rofi.color-normal: argb:0029353b, #ffffff, argb:0029353b, #00bcd4, #ffffff
+# # rofi.color-active: argb:00303030, #808080, argb:00222222, #808080, #2d2828
+# rofi.color-active: argb:00303030, #4db6ac, argb:00222222, #4db6ac, #2d2828
+# rofi.color-urgent: argb:002a1f1e, #fd971f, argb:682a1f1e, #fd971f, #2a1f1e
+
+
+# Arkham colors
+# background #1d1f21
+# blue (Firefox): #0a84ff
+# blue (theme)    #4a89c7
+# grey (theme)    #3e4042
+rofi.color-window: argb:E61d1f21, argb:E61d1f21
+rofi.color-normal: argb:0029353b, #ffffff, argb:0029353b, #4a89c7, #ffffff
+rofi.color-active: argb:E63e4042, #ffffff, argb:00222222, #ffffff, #3e4042
+rofi.color-urgent: argb:002a1f1e, #fd971f, argb:682a1f1e, #fd971f, #2a1f1e
