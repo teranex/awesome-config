@@ -18,9 +18,13 @@
 
 @import "rounded-common.rasi"
 
+* {
+    font: "Hack 12";
+}
+
 window {
     border-radius: 14px;
-    width: 1180;
+    width: 880;
     y-offset: -100;
 }
 
