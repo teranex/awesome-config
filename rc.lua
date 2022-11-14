@@ -320,13 +320,15 @@ globalkeys = awful.util.table.join(
     -- launch rofi when pressing mod1+space to launch anything
     awful.key({ modkey            }, "space",
                function()
-                     awful.spawn( awful.util.getdir("config") .. "/scripts/rofi" )
+                     -- awful.spawn( awful.util.getdir("config") .. "/scripts/rofi" )
+                     awful.spawn( "rofi -show combi" )
                end,
               {description = "Launch Rofi", group = "launcher"}),
     -- also launch rofi when pressing alt-tab to switch windows
     awful.key({ "Mod1"            }, "Tab",
                function()
-                     awful.spawn( awful.util.getdir("config") .. "/scripts/rofi window" )
+                     -- awful.spawn( awful.util.getdir("config") .. "/scripts/rofi window" )
+                     awful.spawn( "rofi -modi window -show window" )
                end,
               {description = "Switch to another client using Rofi", group = "launcher"}),
 
