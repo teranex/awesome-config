@@ -111,9 +111,9 @@ awful.layout.layouts = {
     awful.layout.suit.corner.nw,
     awful.layout.suit.max,
     thrizen,
-    bling.layout.mstab,
-    bling.layout.equalarea,
-    bling.layout.deck,
+    -- bling.layout.mstab,
+    -- bling.layout.equalarea,
+    -- bling.layout.deck,
 }
 
 local default_layout = awful.layout.suit.tile
@@ -463,15 +463,15 @@ globalkeys = awful.util.table.join(
               {description = "Launch Vimwiki", group = "launcher"}),
 
     awful.key({ }, "XF86Calculator", function () term_scratch:toggle() end,
-              {description = "Toggle terminal scratchpad", group = "launcher"}),
+              {description = "Toggle terminal scratchpad", group = "launcher"})
 
 
-    awful.key({ modkey, "Shift"}, "t", function () bling.module.tabbed.pick_with_dmenu()                end,
-              {description = "Select client to add to tabgroup", group = "Tabbed"}),
-    awful.key({ modkey, "Shift"}, "r", function () bling.module.tabbed.pop()                end,
-              {description = "Remove client from tabgroup", group = "Tabbed"}),
-    awful.key({ modkey }, "Tab", function () bling.module.tabbed.iter()                end,
-              {description = "Switch to next client in tabgroup", group = "Tabbed"})
+    -- awful.key({ modkey, "Shift"}, "t", function () bling.module.tabbed.pick_with_dmenu()                end,
+    --           {description = "Select client to add to tabgroup", group = "Tabbed"}),
+    -- awful.key({ modkey, "Shift"}, "r", function () bling.module.tabbed.pop()                end,
+    --           {description = "Remove client from tabgroup", group = "Tabbed"}),
+    -- awful.key({ modkey }, "Tab", function () bling.module.tabbed.iter()                end,
+    --           {description = "Switch to next client in tabgroup", group = "Tabbed"})
 )
 
 clientkeys = awful.util.table.join(
