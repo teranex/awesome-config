@@ -21,7 +21,7 @@ esac
 cat ~/bashmarks | rofi \
     -show $show \
     -show-icons \
-    -modi combi,calc,file-browser \
+    -modi combi,calc,filebrowser \
     -combi-modi window,drun \
     -matching fuzzy \
     -hide-scrollbar true \
