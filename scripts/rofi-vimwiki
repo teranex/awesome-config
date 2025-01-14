@@ -6,7 +6,7 @@ then
     echo TODAY
     echo VIMWIKI
     echo REVIEW
-    cd ~/vimwiki/ && find -type f -name \*.md -not -path "./.archive/*" -not -path "./.trash/*" | cut -c3-
+    cd ~/vimwiki/ && find -type f -name \*.md -not -path "./.archive/*" -not -path "./.trash/*" -not -path "./.obsidian/*" | cut -c3-
 else
     if [[ "$@" == "TODAY" ]]; then
         coproc gvim "/home/jeroen/vimwiki/diary/`date +%Y-%m-%d`.md"
