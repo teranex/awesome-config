@@ -20,6 +20,8 @@ theme                               = {}
 
 theme.notification_shape            = rounded_shape
 theme.notification_margin           = 10
+theme.notification_max_width        = 600
+theme.notification_max_height       = 200
 
 theme.systray_icon_spacing          = 5
 
