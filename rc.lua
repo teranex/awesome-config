@@ -111,8 +111,8 @@ awful.layout.layouts = {
     awful.layout.suit.corner.nw,
     awful.layout.suit.max,
     thrizen,
-    -- bling.layout.mstab,
-    -- bling.layout.equalarea,
+    bling.layout.mstab,
+    bling.layout.equalarea,
     -- bling.layout.deck,
 }
 
