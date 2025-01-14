@@ -638,8 +638,9 @@ awful.rules.rules = {
          properties = { tag = tags["0"] } },
       { rule = { class = "Thunderbird", instance = "Msgcompose" },
          properties = {}, callback = awful.client.setslave },
-      { rule = { class = "Thunderbird", instance = "Calendar" },
-         properties = { sticky = true, ontop = true, placement = awful.placement.bottom_right, focusable = false }, callback = awful.client.setslave },
+      { rule = { class = "thunderbird", instance = "Calendar" },
+         -- properties = { sticky = true, ontop = true, placement = awful.placement.bottom_right, focusable = false }, callback = awful.client.setslave },
+         properties = { floating=false, sticky = false, ontop = false, placement = awful.placement.bottom_right, focusable = true }, callback = awful.client.setslave },
       { rule = { class = "Thunderbird", instance = "Dialog" },
          properties = { placement = awful.placement.centered } },
 
