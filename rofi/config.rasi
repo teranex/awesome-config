@@ -1,10 +1,12 @@
 @theme "rounded-blue-light.rasi"
 
 configuration {
-	modi: "combi,calc";
+	modi: "combi,calc,filebrowser";
 	show-icons: true;
 	combi-modi: "window,drun";
+	// combi-modi: "window,drun,vimwiki:~/.config/awesome/scripts/rofi-vimwiki";
 	matching: "fuzzy";
+    drun-show-actions: true;
 }
 
 configuration {
@@ -13,4 +15,5 @@ configuration {
 
 window {
     /* width: 1180; */
+    /* y-offset: 100px; */
 }
