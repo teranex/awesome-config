@@ -1,3 +1,6 @@
 #!/bin/sh
 # tdrop -a -m -h75% -w80% -x192 -y23 "gvim -f -c ':set titlestring=vimwiki-tdrop' -c ':SessionOpen vimwiki'"
-cd ~/vimwiki && gvim +call\ CreateDiaryFromSnippet\(\'$(date '+%Y-%m-%d')\'\)
+# cd ~/vimwiki && gvim +call\ CreateDiaryFromSnippet\(\'$(date '+%Y-%m-%d')\'\)
+# cd ~/vimwiki && gvim diary/$(date '+%Y-%m-%d').md # +call\ CreateDiaryFromSnippet\(\'$(date '+%Y-%m-%d')\'\)
+
+cd ~/vimwiki && gvim diary/$(date '+%Y-%m-%d').md
