@@ -69,7 +69,8 @@ end
 beautiful.init(awful.util.getdir("config") .. "/themes/holo/arkham.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = os.getenv("HOME") .. "/.local/kitty.app/bin/kitty"
+-- terminal = os.getenv("HOME") .. "/.local/kitty.app/bin/kitty"
+terminal = 'kitty'
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
 
