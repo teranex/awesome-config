@@ -291,7 +291,7 @@ end)
 
 -- {{{ scratchpads
 local term_scratch = bling.module.scratchpad {
-    command = terminal .. " --class kitty-guake -o background_opacity=0.7",           -- How to spawn the scratchpad
+    command = terminal .. " --class kitty-guake -o background_opacity=0.95",           -- How to spawn the scratchpad
     rule = { instance = "kitty-guake" },                     -- The rule that the scratchpad will be searched by
     sticky = true,                                    -- Whether the scratchpad should be sticky
     autoclose = false,                                 -- Whether it should hide itself when losing focus
