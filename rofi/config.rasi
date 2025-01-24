@@ -3,7 +3,8 @@
 configuration {
 	modi: "combi,calc,filebrowser";
 	show-icons: true;
-	combi-modi: "window,drun";
+	// combi-modi: "window,drun";
+	combi-modi: "drun";
 	// combi-modi: "window,drun,vimwiki:~/.config/awesome/scripts/rofi-vimwiki";
 	matching: "fuzzy";
     drun-show-actions: true;
